@@ -27,7 +27,10 @@
 			create
 		</property>
 		
-		<mapping class="com.revature.beans.login"/>
+		<!-- Mapping for medical records -->
+		<mapping class="com.actualcare.beans.MedicalRecords"/>
+		<!-- Mapping for treatments -->
+		<mapping class="com.actualcare.beans.Treatment"/>
 		
 	</session-factory>
 </hibernate-configuration>
