@@ -35,6 +35,12 @@ public class MedicalRecords {
 		this.medicalRecords = medicalRecords;
 		this.fileNames = fileNames;
 	}
+	/**Constructor will all arguments except for mr_id**/
+	public MedicalRecords(List<File> medicalRecords, List<String> fileNames) {
+		super();
+		this.medicalRecords = medicalRecords;
+		this.fileNames = fileNames;
+	}
 	/**No args constructor to initialize both list to a new ArrayList of their respective types.**/
 	public MedicalRecords() {
 		this.medicalRecords = new ArrayList<File>();
