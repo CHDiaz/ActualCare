@@ -1,8 +1,6 @@
 package com.actualcare.beans;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Blob;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,40 +23,35 @@ public class MedicalRecords {
 	@GeneratedValue(generator="MR_SEQ", strategy=GenerationType.SEQUENCE)
 	private Integer mr_id; 				 // variable/column for unique identifier for MedicalRecords object instance
 	@Column
-	private List<File> medicalRecords;   // variable/column for attachments for MedicalRecords object instance
+	private Blob medicalRecords;   // variable/column for attachments for MedicalRecords object instance
 	@Column
-	private List<String> fileNames;		// variable/column for attachments' names for MedicalRecords object instance
+	private String fileNames;		// variable/column for attachments' names for MedicalRecords object instance
 	
 	/**All args constructor for this MedicalRecords Object Instance**/
-	public MedicalRecords(Integer mr_id, List<File> medicalRecords, List<String> fileNames) {
+	public MedicalRecords(Integer mr_id, Blob medicalRecords, String fileNames) {
 		this.mr_id = mr_id;
 		this.medicalRecords = medicalRecords;
 		this.fileNames = fileNames;
 	}
 	/**Constructor will all arguments except for mr_id**/
-	public MedicalRecords(List<File> medicalRecords, List<String> fileNames) {
+	public MedicalRecords(Blob medicalRecords, String fileNames) {
 		super();
 		this.medicalRecords = medicalRecords;
 		this.fileNames = fileNames;
-	}
-	/**No args constructor to initialize both list to a new ArrayList of their respective types.**/
-	public MedicalRecords() {
-		this.medicalRecords = new ArrayList<File>();
-		this.fileNames = new ArrayList<String>();
 	}
 	
 	/**Sets the mr_id of this MedicalRecords Object instance**/
 	public void setMr_id(Integer mr_id) {this.mr_id = mr_id;}
 	/**Sets the fileName of this MedicalRecords Object instance**/
-	public void setMedicalRecords(List<File> medicalRecords) {this.medicalRecords = medicalRecords;}
+	public void setMedicalRecords(Blob medicalRecords) {this.medicalRecords = medicalRecords;}
 	/**Sets the fileName of this MedicalRecords Object instance**/
-	public void setFileName(List<String> fileNames) {this.fileNames = fileNames;}
+	public void setFileName(String fileNames) {this.fileNames = fileNames;}
 	
 	/**Returns the mr_id of this MedicalRecords Object instance**/
 	public Integer getMr_id() {return mr_id;}
 	/**Returns a list of files of this MedicalRecords Object instance**/
-	public List<File> getMedicalRecords() {return medicalRecords;}
+	public Blob getMedicalRecords() {return medicalRecords;}
 	/**Returns a list of of fileName of this MedicalRecords Object instance**/
-	public List<String> getFileNames() {return fileNames;}
+	public String getFileNames() {return fileNames;}
 
 }
