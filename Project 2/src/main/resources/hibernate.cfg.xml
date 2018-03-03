@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">
+			oracle.jdbc.OracleDriver
+		</property>
+		<property name="hibernate.dialect">
+			org.hibernate.dialect.Oracle10gDialect
+		</property>
+		<property name="hibernate.connection.url">
+			jdbc:oracle:thin:@project2.cjvvodxzmpda.us-east-1.rds.amazonaws.com:1521:ORCL 
+		</property>
+		<property name="hibernate.connection.username">
+			admin
+		</property>
+		<property name="hibernate.connection.password">
+			harishkumar
+		</property>
+		<property name="hibernate.connection.pool_size">
+			10
+		</property>
+		<property name="show_sql">
+			true
+		</property>
+		<property name="hibernate.hbm2ddl.auto">
+			create
+		</property>
+		
+		<!-- Mapping for treatments -->
+		<mapping class="com.actualcare.beans.Treatment"/>
+		<!-- Mapping for loginInfo -->
+		<mapping class="com.actualcare.beans.LoginInfo"/>
+		<!-- Mapping for Doctor -->
+		<mapping class="com.actualcare.beans.Doctor"/>
+		<!-- Mapping for Admin -->
+		<mapping class="com.actualcare.beans.Admin"/>
+		<!-- Mapping for Patient -->
+		<mapping class="com.actualcare.beans.Patient"/>
+		
+	</session-factory>
+</hibernate-configuration>
