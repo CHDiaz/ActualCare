@@ -11,6 +11,7 @@
 */target/*
 **/bin/
 **/META-INF/**
+/pom.properties
 
 #Eclipse
 **/.metadata
