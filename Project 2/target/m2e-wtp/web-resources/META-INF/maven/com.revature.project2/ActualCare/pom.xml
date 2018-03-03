@@ -30,14 +30,11 @@
 			<artifactId>ojdbc7</artifactId>
 			<version>12.1.0</version>
 		</dependency>
-<<<<<<< HEAD
-	  <dependency>
--    		<groupId>javax.servlet</groupId>
--    		<artifactId>javax.servlet-api</artifactId>
--    		<version>3.0.1</version>
--    		<scope>provided</scope>
-- 		</dependency>
-=======
->>>>>>> parent of 933d857... working on servlets
+		<dependency>
+    		<groupId>javax.servlet</groupId>
+    		<artifactId>javax.servlet-api</artifactId>
+    		<version>3.0.1</version>
+    		<scope>provided</scope>
+ 		</dependency>
 	</dependencies>  
 </project>
