@@ -1,18 +1,14 @@
 package com.actualcare.main;
 
-import com.actualcare.beans.Admin;
-import com.actualcare.beans.Doctor;
-import com.actualcare.beans.LoginInfo;
-import com.actualcare.beans.Patient;
-import com.actualcare.dao.AdminDao;
-import com.actualcare.dao.DoctorDao;
-import com.actualcare.dao.PatientDao;
+import com.actualcare.beans.Treatment;
+import com.actualcare.dao.TreatmentDaoImpl;
+import com.actualcare.dao.TreatmentDao;
 
 public class Driver {
 
 	public static void main(String[] args) {
 		
-		// Patient login data insert test
+	/*	// Patient login data insert test
 		Patient p = new Patient((new LoginInfo("harish@com","harish")));
 		PatientDao.insertPatient(p);
 		
@@ -22,7 +18,14 @@ public class Driver {
 		
 		// Admin login data insert test
 		Admin a = new Admin((new LoginInfo("steven@com","steven")));
-		AdminDao.insertAdmin(a);
+		AdminDao.insertAdmin(a);*/
+		
+		// Treatement data insert test
+/*		Treatment t = new Treatment("test");
+		TreatmentDao tDao = new TreatmentDaoImpl();
+		int id = tDao.insert(t);
+		System.out.println(id);*/
+		
 
 	}
 

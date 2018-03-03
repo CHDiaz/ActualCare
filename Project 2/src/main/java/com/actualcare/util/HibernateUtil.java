@@ -1,4 +1,4 @@
-package com.acutalcare.util;
+package com.actualcare.util;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
