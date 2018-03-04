@@ -31,7 +31,7 @@
 			<version>12.1.0</version>
 		</dependency>
 		<dependency>
-<<<<<<< HEAD
+
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.0.1</version>
@@ -56,13 +56,13 @@
 			<version>6.14.2</version>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
-=======
-    		<groupId>javax.servlet</groupId>
+	
+		<dependency>
+		<groupId>javax.servlet</groupId>
     		<artifactId>javax.servlet-api</artifactId>
     		<version>3.0.1</version>
     		<scope>provided</scope>
  		</dependency>
 	</dependencies>  
->>>>>>> e96410463476ab41fb003cd47167d0d13f2c62a0
+
 </project>

@@ -19,7 +19,7 @@ public class PersonalInfo {
 	@Column(name="personal_id")
 	@SequenceGenerator(sequenceName="P_SEQ", name="P_SEQ")
 	@GeneratedValue(generator="P_SEQ", strategy=GenerationType.SEQUENCE)
-	private Integer perosnal_id;
+	private Integer personal_id;
 	@Column
 	private String f_name;
 	private String l_name;
@@ -30,9 +30,9 @@ public class PersonalInfo {
 	private String city;
 	private String state;
 	
-	//@OneToOne(fetch=FetchType.EAGER)
-	//@JoinColumn(name="P_Id")
-	//private Patient patient;
+	@OneToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="P_Id")
+	private Patient patient;
 	
 	public PersonalInfo() {
 		super();
@@ -66,12 +66,12 @@ public class PersonalInfo {
 		this.state = state;
 	}
 
-	public Integer getPerosnal_id() {
-		return perosnal_id;
+	public Integer getPersonal_id() {
+		return personal_id;
 	}
 
-	public void setPerosnal_id(Integer perosnal_id) {
-		this.perosnal_id = perosnal_id;
+	public void setPersonal_id(Integer personal_id) {
+		this.personal_id = perosnal_id;
 	}
 
 	public String getF_name() {
@@ -140,7 +140,7 @@ public class PersonalInfo {
 
 	@Override
 	public String toString() {
-		return "PersonalInfo [perosnal_id=" + perosnal_id + ", f_name=" + f_name + ", l_name=" + l_name + ", age=" + age
+		return "PersonalInfo [personal_id=" + personal_id + ", f_name=" + f_name + ", l_name=" + l_name + ", age=" + age
 				+ ", sex=" + sex + ", door_no=" + door_no + ", street=" + street + ", city=" + city + ", state=" + state
 				+ "]";
 	}
