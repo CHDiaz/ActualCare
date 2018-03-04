@@ -8,9 +8,10 @@
 
 **/pull_request_template.md
 **/issue_template.md
-**/target/
+*/target/*
 **/bin/
 **/META-INF/**
+/pom.properties
 
 #Eclipse
 **/.metadata
