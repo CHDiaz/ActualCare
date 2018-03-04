@@ -21,11 +21,14 @@ public class Driver {
 		AdminDao.insertAdmin(a);*/
 		
 		// Treatement data insert test
-/*		Treatment t = new Treatment("test");
+		Treatment t = new Treatment("test");
 		TreatmentDao tDao = new TreatmentDaoImpl();
 		int id = tDao.insert(t);
-		System.out.println(id);*/
+		System.out.println(id);
 		
+		Treatment t1 = tDao.returnTreatment(id);
+		System.out.println(t1.getT_id());
+		System.out.println(t.getT_id());
 
 	}
 
