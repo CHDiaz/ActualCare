@@ -25,6 +25,7 @@
 #IDEA
 **/.idea/
 **/*.iml
+**/test-output/
 
 #AngularJS
 **/.tern-project
