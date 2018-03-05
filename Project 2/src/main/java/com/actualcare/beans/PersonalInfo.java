@@ -2,9 +2,12 @@ package com.actualcare.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -39,10 +42,10 @@ public class PersonalInfo {
 		
 	}
 	
-	public PersonalInfo(Integer perosnal_id, String f_name, String l_name, Integer age, String sex, Integer door_no,
+	public PersonalInfo(Integer personal_id, String f_name, String l_name, Integer age, String sex, Integer door_no,
 			String street, String city, String state) {
 		super();
-		this.perosnal_id = perosnal_id;
+		this.personal_id = personal_id;
 		this.f_name = f_name;
 		this.l_name = l_name;
 		this.age = age;
@@ -71,7 +74,7 @@ public class PersonalInfo {
 	}
 
 	public void setPersonal_id(Integer personal_id) {
-		this.personal_id = perosnal_id;
+		this.personal_id = personal_id;
 	}
 
 	public String getF_name() {

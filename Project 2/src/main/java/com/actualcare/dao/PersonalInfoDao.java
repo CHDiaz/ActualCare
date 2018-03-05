@@ -1,8 +1,8 @@
 package com.actualcare.dao;
 
-import com.actualcare.beans;
+import com.actualcare.beans.PersonalInfo;
 
-public class PersonalInfoDao {
+public interface PersonalInfoDao {
 	public int insert(PersonalInfo pi);
 
 	
