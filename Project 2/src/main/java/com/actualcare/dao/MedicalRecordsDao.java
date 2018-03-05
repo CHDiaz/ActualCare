@@ -30,9 +30,6 @@ public interface MedicalRecordsDao {
 	 * that will be returned back to the user.
 	 **/
 	public File convertToFile(MedicalRecords m);
-	/**Method that will take a File object and convert it into a file
-	 * that will be returned back as blob**/
-	public Blob convertToBlob (File f);
 	/** Method that returns a file associated with a m_id **/
 	public File getFile(int m_id);
 }
