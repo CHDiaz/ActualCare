@@ -21,10 +21,12 @@
 **/.recommenders/**
 **/Servers
 **/.springBeans
+**/logs/
 
 #IDEA
 **/.idea/
 **/*.iml
+**/test-output/
 
 #AngularJS
 **/.tern-project

@@ -4,7 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.actualcare.beans.Patient;
-import com.acutalcare.util.HibernateUtil;
+import com.actualcare.util.HibernateUtil;
 
 /**
  * This Patient is incomplete
