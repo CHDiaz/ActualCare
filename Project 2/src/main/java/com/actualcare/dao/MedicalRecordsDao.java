@@ -1,7 +1,7 @@
 package com.actualcare.dao;
 
 import java.io.File;
-import java.sql.Blob;
+import java.util.List;
 
 import com.actualcare.beans.MedicalRecords;
 
@@ -26,6 +26,10 @@ public interface MedicalRecordsDao {
 	 **/
 	public MedicalRecords returnMedicalRecords(int m_id);
 	/**
+	 * Method for returning all MedicalRecords records as a list.
+	 **/
+	public List<MedicalRecords> returnAllMedicalRecords();
+	/**
 	 * Method that will take a MedicalRecords Blob object and convert it into a file
 	 * that will be returned back to the user.
 	 **/
@@ -33,7 +37,7 @@ public interface MedicalRecordsDao {
 	/**Method that will take a file object and convert it into a blob
 	 * object so that it may inserted into a MedicalRecords object and 
 	 * then be eligible for persistence in the database.**/
-	public Blob convertToBlob (File f);
+	public byte[] convertToByteArray (File f);
 	/** Method that returns a file associated with a m_id **/
 	public File getFile(int m_id);
 }

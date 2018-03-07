@@ -5,10 +5,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.sql.Blob;
-import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
@@ -17,7 +15,6 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 import com.actualcare.beans.MedicalRecords;
-import com.actualcare.beans.Treatment;
 import com.actualcare.util.HibernateUtil;
 
 /**
@@ -95,7 +92,7 @@ public class MedicalRecordsDaoImpl implements MedicalRecordsDao {
 
 		try {
 			tx = session.beginTransaction();
-			medicalRecords = (MedicalRecords) session.createCriteria(Treatment.class).add(Restrictions.idEq(m_id))
+			medicalRecords = (MedicalRecords) session.createCriteria(MedicalRecords.class).add(Restrictions.idEq(m_id))
 					.uniqueResult();
 
 		} catch (HibernateException e) {
@@ -110,36 +107,51 @@ public class MedicalRecordsDaoImpl implements MedicalRecordsDao {
 		logger.info("MedicalRecords object returned successfully.");
 		return medicalRecords;
 	}
+	
+	/**
+	 * Method for returning all MedicalRecords records as a list.
+	 **/
+	public List<MedicalRecords> returnAllMedicalRecords() {
+		logger.info("MedicalRecordsDaoImpl returnAllMedicalRecords method called.");
+		List<MedicalRecords> medicalRecordsList = new ArrayList<>();
+		Session session = HibernateUtil.getSession();
+		Transaction tx = null;
+		
+		try{
+			
+			tx = session.beginTransaction();
+			medicalRecordsList = session.createQuery("FROM MedicalRecords").list();
+			logger.info("All MedicalRecords objects obtained");
+			
+		}catch(HibernateException e){
+			if(tx!=null){
+				tx.rollback();
+				logger.info("MedicalRecordsDaoImpl was UNABLE to return all Treatments");
+			}
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		return medicalRecordsList;
+	}
 
 	/**
-	 * Method that will take a MedicalRecords Blob object and convert it into a file
+	 * Method that will take a MedicalRecords byte array and convert it into a file
 	 * that will be returned back to the user.
 	 **/
-	public File convertToFile(MedicalRecords m) {
+	public File convertToFile(MedicalRecords m){
 		logger.info("MedicalRecordsDaoImpl convertToFile method has been called.");
 
-		Blob blob = m.getMedicalRecords();
-		File file = new File(m.getFileName());
-
+		byte[] buff = m.getMedicalRecords();		// Create byte array
+		File file = new File(m.getFileName());		// get file name from MedicalRecords m
+		
 		try {
 			logger.info("Blob will now be written into a file.");
-			InputStream in = blob.getBinaryStream();
-			OutputStream out = new FileOutputStream(file);
-			byte[] buff = new byte[4096];
-			int len = 0;
-
-			while ((len = in.read(buff)) != -1) {
-				out.write(buff, 0, len);
-			}
-			in.close();
-			out.flush();
-			out.close();
-
+			FileOutputStream fos = new FileOutputStream(file); 		 // Create new FileOutput stream with file
+			fos.write(buff);										 // use fileoutputstream to write byte array to file
+			fos.close();
 		} catch (FileNotFoundException e) {
 			logger.error("The file:" + m.getFileName() + " was NOT found!");
-			e.printStackTrace();
-		} catch (SQLException e) {
-			logger.error("The file:" + m.getFileName() + " was NOT found in the database!");
 			e.printStackTrace();
 		} catch (IOException e) {
 			logger.error("The file:" + m.getFileName() + " could NOT be written!");
@@ -152,16 +164,17 @@ public class MedicalRecordsDaoImpl implements MedicalRecordsDao {
 	/**Method that will take a file object and convert it into a blob
 	 * object so that it may inserted into a MedicalRecords object and 
 	 * then be eligible for persistence in the database. 
+	 * @throws  
 	 **/
-	public Blob convertToBlob(File f) {
-		logger.info("MedicalRecordsDaoImpl convertToBlob method has been called.");
-		Blob blob = null;
+	public byte[] convertToByteArray(File f)  {
+		logger.info("MedicalRecordsDaoImpl convertToByteArray method has been called.");
 		byte[] buff = new byte[(int) f.length()];
+		
 		try {
+			logger.info("MedicalRecordsDaoImpl convertToByteArray will attempt to convert file to byte[] now.");
 			FileInputStream fis = new FileInputStream(f);
 			fis.read(buff);
 			fis.close();
-			blob.setBytes(-1, buff);	
 		}
 		catch(FileNotFoundException e) {
 			logger.error("FILE NOT FOUND!");
@@ -175,7 +188,9 @@ public class MedicalRecordsDaoImpl implements MedicalRecordsDao {
 			logger.error("Something went wrong?");
 			e.printStackTrace();
 		} 
-		return blob;
+		logger.info("MedicalRecordsDaoImpl is now return byte[] of file");
+		
+		return buff;
 	}
 	
 	/** Method that returns a file associated with a m_id **/
