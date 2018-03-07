@@ -1,8 +1,9 @@
 package com.actualcare.test;
 
 import java.io.File;
-import java.sql.Blob;
 
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.actualcare.beans.MedicalRecords;
@@ -10,20 +11,24 @@ import com.actualcare.dao.MedicalRecordsDao;
 import com.actualcare.dao.MedicalRecordsDaoImpl;
 
 public class MedicalRecordsDaoTest {
-  
+	MedicalRecordsDao tDao = new MedicalRecordsDaoImpl();
+	
 	/** Test for the insert method of the TreatmentDaoImpl class. **/
 	@Test(priority = 1)
 	public void insertTest() {
-		File file = new File("/ActualCare/src/main/resources/log4j.properties");
+		
+		File file = new File("C:\\Users\\Christian Diaz\\Desktop\\180212\\Project2-Pipeline\\Project 2\\src\\test\\java\\com\\actualcare\\test\\testFile.txt");
+		
+		MedicalRecords m = new MedicalRecords(tDao.convertToBlob(file), file.getName());
+		int id = tDao.insert(m);
+		Assert.assertEquals(id, 50);
 	}
-/*		MedicalRecords m = new MedicalRecords(file, file.getName());
-		MedicalRecordsDao tDao = new MedicalRecordsDaoImpl();
-		//Assert.assertEquals(tDao.insert(t), 50);
-	}
+		
+	
 
 
 
-	public int insert(MedicalRecords m);
+/*	public int insert(MedicalRecords m);
 	public void delete(MedicalRecords m);
 	public MedicalRecords returnMedicalRecords(int m_id);
 	public File convertToFile(MedicalRecords m);

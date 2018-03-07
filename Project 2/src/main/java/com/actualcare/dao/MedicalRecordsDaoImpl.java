@@ -149,6 +149,35 @@ public class MedicalRecordsDaoImpl implements MedicalRecordsDao {
 		return file;
 	}	
 	
+	/**Method that will take a file object and convert it into a blob
+	 * object so that it may inserted into a MedicalRecords object and 
+	 * then be eligible for persistence in the database. 
+	 **/
+	public Blob convertToBlob(File f) {
+		logger.info("MedicalRecordsDaoImpl convertToBlob method has been called.");
+		Blob blob = null;
+		byte[] buff = new byte[(int) f.length()];
+		try {
+			FileInputStream fis = new FileInputStream(f);
+			fis.read(buff);
+			fis.close();
+			blob.setBytes(-1, buff);	
+		}
+		catch(FileNotFoundException e) {
+			logger.error("FILE NOT FOUND!");
+			e.printStackTrace();
+		}
+		catch(IOException e) {
+			logger.error("INPUT/OUTPUT ERROR!");
+			e.printStackTrace();
+			
+		}catch (Exception e) {
+			logger.error("Something went wrong?");
+			e.printStackTrace();
+		} 
+		return blob;
+	}
+	
 	/** Method that returns a file associated with a m_id **/
 	public File getFile(int m_id) {
 		logger.info("MedicalRecordsDaoImpl getFile method has been called.");
@@ -156,7 +185,4 @@ public class MedicalRecordsDaoImpl implements MedicalRecordsDao {
 		logger.info("File is being found, converted, and returned by getFile()");
 		return convertToFile(medicalRecords);
 	}
-
-	
-
 }

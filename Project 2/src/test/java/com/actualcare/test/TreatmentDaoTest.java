@@ -49,11 +49,9 @@ public class TreatmentDaoTest {
 		Treatment t = new Treatment("test");
 		Treatment t2 = new Treatment("test2");
 		TreatmentDao tDao = new TreatmentDaoImpl();
-		List<Treatment> notEmpty = new ArrayList();
 		tDao.insert(t);
 		tDao.insert(t2);
-		notEmpty.add(t);
-		notEmpty.add(t2);
-		Assert.assertEquals(notEmpty, tDao.returnAllTreatments());
+		List<Treatment> testList = tDao.returnAllTreatments();
+		Assert.assertNotEquals(null, testList);
 	}
 }
