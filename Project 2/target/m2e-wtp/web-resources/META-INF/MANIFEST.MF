@@ -1,5 +1,13 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
+Built-By: haris
+Build-Jdk: 1.8.0_144
+||||||| merged common ancestors
+Built-By: Christian Diaz
+Build-Jdk: 1.8.0_161
+=======
 Built-By: stevencara26
 Build-Jdk: 1.8.0_161
+>>>>>>> b1e2678d43da522d6829db030783411edd5d8859
 Created-By: Maven Integration for Eclipse
 
