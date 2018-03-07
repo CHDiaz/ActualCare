@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.actualcare.beans.Test;
 
-@Path("/test") //http://localhost:8085/ArtifactId/rest/test
+@Path("/test") //http://localhost:8085/ActualCare/rest/test
 public class TestRest {
 	
 	@GET
@@ -42,6 +42,20 @@ public class TestRest {
 		return test.get(id-1);
 	}
 	
+//	@PUT
+//	@Path("/get/{testId}")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public Test updateTestIndex(@PathParam("testId") int id){
+//		
+//		List<Test> test = getAllTest();
+//		
+//		if(test.size()<id){
+//			return null;
+//		}
+//		
+//		return test.get(id-1);
+//	}
+//	
 //	@POST
 //	@Consumes(MediaType.APPLICATION_JSON)
 //	@Produces(MediaType.TEXT_PLAIN)
@@ -51,8 +65,6 @@ public class TestRest {
 //		System.out.println(emp);
 //		emps.add(emp);
 //		return "Success";
-//	}
-	
-	
+//	}	
 
 }
