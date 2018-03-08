@@ -20,23 +20,7 @@ public class InsuranceDaoTest {
 		Insurance i = new Insurance("test");
 		InsuranceDao iDao = new InsuranceDaoImpl();
 		int insurance_id = iDao.insert(i);
-		Assert.assertEquals((iDao.returnInsurance(insurance_id)).getInsurance_id(), i.getInsurance_id());
-	}
-	
-	@Test(priority = 3)
-	public void returnDocTest() {
-		Insurance i = new Insurance("test");
-		InsuranceDao iDao = new InsuranceDaoImpl();
-		int insurance_id = iDao.insert(i);
-		Assert.assertEquals((iDao.returnInsurance(insurance_id)).getDoctor(), i.getDoctor().getD_Id());
-	}
-	
-	@Test(priority = 4)
-	public void returnPatTest() {
-		Insurance i = new Insurance("test");
-		InsuranceDao iDao = new InsuranceDaoImpl();
-		int insurance_id = iDao.insert(i);
-		Assert.assertEquals((iDao.returnInsurance(insurance_id)).getPatient(), i.getPatient().getP_Id());
+		Assert.assertEquals((iDao.returnInsurance(insurance_id)).getI_id(), i.getI_id());
 	}
 	
 	@Test(priority = 5)

@@ -154,7 +154,5 @@ public class InsuranceDaoImpl implements InsuranceDao {
 		return allinsuranceList;
 	}
 
-	
-	}
 
 }
