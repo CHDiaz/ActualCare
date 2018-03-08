@@ -2,9 +2,12 @@ package com.actualcare.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -23,13 +26,15 @@ public class Treatment {
 	private Integer t_id;
 	@Column
 	private String treatmentInfo;
-	//@OneToOne(fetch=FetchType.EAGER)
-	//@JoinColumn(name="d_id")
-	//private Diagnosis diagnosis;
 	
+//	@OneToOne(fetch=FetchType.EAGER)
+//	@JoinColumn(name="di_id")
+//	private Diagnosis diagnosis;
 	
+	/**No args constructor**/
 	public Treatment() {}
 	
+	/**All args constructor**/
 	public Treatment(Integer t_id, String treatmentInfo) {
 		this.t_id = t_id;
 		this.treatmentInfo = treatmentInfo;

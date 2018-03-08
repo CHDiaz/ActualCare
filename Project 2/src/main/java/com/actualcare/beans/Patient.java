@@ -1,5 +1,6 @@
 package com.actualcare.beans;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -7,9 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
 
 /**
  * Bean is incomplete
@@ -51,6 +54,11 @@ public class Patient {
 		super();
 		this.login = login;
 	}
+	
+	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="Patient_Insurance")
+	private Insurance myInsurance;
+	
 	
 	
 	//Getters & Setters
