@@ -1,5 +1,8 @@
 package com.actualcare.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -96,5 +99,30 @@ public class TreatmentDaoImpl implements TreatmentDao {
 		}
 		logger.info("Treatment object returned successfully.");
 		return treatment;
+	}
+
+	/**Method to return all of the treatments in the database as a list of Treatments.**/
+	public List<Treatment> returnAllTreatments() {
+		logger.info("TreatmentDaoImpl returnAllTreatments method called.");
+		List<Treatment> treatmentList = new ArrayList<Treatment>();
+		Session session = HibernateUtil.getSession();
+		Transaction tx = null;
+		
+		try{
+			
+			tx = session.beginTransaction();
+			treatmentList = session.createQuery("FROM Treatment").list();
+			logger.info("All treatment objects obtained");
+			
+		}catch(HibernateException e){
+			if(tx!=null){
+				tx.rollback();
+				logger.info("TreatmentDaoImpl was UNABLE to return all Treatments");
+			}
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		return treatmentList;
 	}
 }
