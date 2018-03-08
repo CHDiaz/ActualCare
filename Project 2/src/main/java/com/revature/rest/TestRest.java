@@ -15,7 +15,7 @@ import com.actualcare.beans.Test;
 public class TestRest {
 	
 	@GET
-	@Path("/get")
+	@Path("/get")//http://localhost:8085/ActualCare/rest/test/get
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Test> getAllTest(){
 		
@@ -29,7 +29,7 @@ public class TestRest {
 	}
 	
 	@GET
-	@Path("/get/{testId}")
+	@Path("/get/{testId}")////http://localhost:8085/ActualCare/rest/test/get/id
 	@Produces(MediaType.APPLICATION_JSON)
 	public Test getTestIndex(@PathParam("testId") int id){
 		

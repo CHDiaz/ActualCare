@@ -14,7 +14,7 @@ import com.actualcare.dao.LoginInfoDao;
 public class LoginRest {
 	
 	@GET
-	@Path("/get")
+	@Path("/get")//http://localhost:8085/ActualCare/rest/login/get
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<LoginInfo> getAlllogin(){
 		return LoginInfoDao.getAllLogin();

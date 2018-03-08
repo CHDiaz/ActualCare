@@ -20,7 +20,7 @@ public class LoginInfoDao {
 		try{
 			
 			tx = session.beginTransaction();
-			logins = session.createQuery("FROM LOGININFO").list();
+			logins = session.createQuery("FROM LoginInfo").list();
 			
 		}catch(HibernateException e){
 			if(tx!=null){
