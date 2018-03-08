@@ -71,6 +71,24 @@ public class Insurance {
 		this.i_name = i_name;
 	}
 
+	
+	
+	public Patient getPatient() {
+		return patient;
+	}
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
+
+	public Doctor getDoctor() {
+		return doctor;
+	}
+
+	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
+	}
+
 	@Override
 	public String toString() {
 		return "Insurance [insurance_id=" + insurance_id + ", i_name=" + i_name + "]";

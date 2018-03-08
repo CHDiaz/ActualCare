@@ -39,6 +39,10 @@
 		<mapping class="com.actualcare.beans.Admin"/>
 		<!-- Mapping for Patient -->
 		<mapping class="com.actualcare.beans.Patient"/>
+		<!-- Mapping for  Insurance -->
+		<mapping class="com.actualcare.beans.Insurance"/>
+		<!-- Mapping for  Insurance -->
+		<mapping class="com.actualcare.beans.PersonalInfo"/>
 		
 	</session-factory>
 </hibernate-configuration>

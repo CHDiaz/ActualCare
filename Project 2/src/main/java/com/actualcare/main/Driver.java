@@ -1,8 +1,13 @@
 package com.actualcare.main;
 
+import org.testng.Assert;
+
+import com.actualcare.beans.Insurance;
 import com.actualcare.beans.Treatment;
-import com.actualcare.dao.TreatmentDaoImpl;
+import com.actualcare.dao.InsuranceDao;
+import com.actualcare.dao.InsuranceDaoImpl;
 import com.actualcare.dao.TreatmentDao;
+import com.actualcare.dao.TreatmentDaoImpl;
 
 public class Driver {
 
@@ -30,6 +35,22 @@ public class Driver {
 		System.out.println(t1.getT_id());
 		System.out.println(t.getT_id());*/
 
+		/*Insurance insurance = new Insurance("test");
+		InsuranceDao iDao =  new InsuranceDaoImpl();
+		int id = iDao.returnInsurance(insurance);
+		System.out.println(id);
+		*/
+	
+	/*	
+		Insurance i = new Insurance("test");
+		InsuranceDao iDao = new InsuranceDaoImpl();
+		Integer i_id = iDao.insert(i);
+		Assert.assertEquals((iDao.returnInsurance(i_id)).getDoctor(), i.getDoctor().getD_Id());
+	*/	
+		Insurance i = new Insurance("test");		InsuranceDao iDao = new InsuranceDaoImpl();
+		Integer i_id = iDao.insert(i);
+		Assert.assertEquals((iDao.returnInsurance(i_id)).getPatient(), i.getPatient().getP_Id());
+		
 	}
 
 }

@@ -28,7 +28,7 @@ public class InsuranceDaoTest {
 		Insurance i = new Insurance("test");
 		InsuranceDao iDao = new InsuranceDaoImpl();
 		int insurance_id = iDao.insert(i);
-		Assert.assertEquals((iDao.returnInsurance(insurance_id)).getDoctor(), i.getDoctor().getD_Id);
+		Assert.assertEquals((iDao.returnInsurance(insurance_id)).getDoctor(), i.getDoctor().getD_Id());
 	}
 	
 	@Test(priority = 4)
