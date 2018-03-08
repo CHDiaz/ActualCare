@@ -10,9 +10,10 @@ import com.actualcare.dao.InsuranceDaoImpl;
 public class InsuranceDaoTest {
 	@Test(priority = 1)
 	public void insertTest() {
-		Insurance i = new Insurance("test");
+		Insurance i = new Insurance();
 		InsuranceDao iDao = new InsuranceDaoImpl();
 		Assert.assertEquals(iDao.insert(i), 50);
+		iDao.delete(i);
 	}
 
 	@Test(priority = 2)
@@ -20,26 +21,11 @@ public class InsuranceDaoTest {
 		Insurance i = new Insurance("test");
 		InsuranceDao iDao = new InsuranceDaoImpl();
 		int insurance_id = iDao.insert(i);
-		Assert.assertEquals((iDao.returnInsurance(insurance_id)).getInsurance_id(), i.getInsurance_id());
+		Assert.assertEquals((iDao.returnInsurance(insurance_id)).getI_id(), i.getI_id());
+		iDao.delete(i);
 	}
 	
 	@Test(priority = 3)
-	public void returnDocTest() {
-		Insurance i = new Insurance("test");
-		InsuranceDao iDao = new InsuranceDaoImpl();
-		int insurance_id = iDao.insert(i);
-		Assert.assertEquals((iDao.returnInsurance(insurance_id)).getDoctor(), i.getDoctor().getD_Id);
-	}
-	
-	@Test(priority = 4)
-	public void returnPatTest() {
-		Insurance i = new Insurance("test");
-		InsuranceDao iDao = new InsuranceDaoImpl();
-		int insurance_id = iDao.insert(i);
-		Assert.assertEquals((iDao.returnInsurance(insurance_id)).getPatient(), i.getPatient().getP_Id());
-	}
-	
-	@Test(priority = 5)
 	public void deleteTest() {
 		Insurance i = new Insurance("test");
 		InsuranceDao iDao = new InsuranceDaoImpl();

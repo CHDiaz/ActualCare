@@ -141,6 +141,15 @@ public class PersonalInfo {
 		this.state = state;
 	}
 
+		
+	public Patient getPatient() {
+		return patient;
+	}
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
+
 	@Override
 	public String toString() {
 		return "PersonalInfo [personal_id=" + personal_id + ", f_name=" + f_name + ", l_name=" + l_name + ", age=" + age

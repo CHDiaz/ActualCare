@@ -9,7 +9,7 @@ import org.hibernate.criterion.Restrictions;
 import com.actualcare.beans.PersonalInfo;
 import com.actualcare.util.HibernateUtil;
 
-public class PersonalInfoDaoImpl {
+public class PersonalInfoDaoImpl implements PersonalInfoDao {
 private static Logger logger = Logger.getLogger(PersonalInfoDaoImpl.class);
 
 	
@@ -83,4 +83,27 @@ private static Logger logger = Logger.getLogger(PersonalInfoDaoImpl.class);
 		logger.info("Insurance object returned successfully.");
 		return personal;
 	}
+	
+	public PersonalInfo getPersonalInfoByPatId(Integer patient){
+		PersonalInfo personalInfo = null;
+		Session session = HibernateUtil.getSession();
+		Transaction tx = null;
+		
+		try{
+			
+			tx = session.beginTransaction();
+			System.out.println("Grabbing the object for the first time...");
+			personalInfo = (PersonalInfo)session.get(PersonalInfo.class, patient);
+			
+			
+		}catch(HibernateException e){
+			if(tx!=null){
+				tx.rollback();
+			}
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		return personalInfo;
+}
 }
