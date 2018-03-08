@@ -28,7 +28,7 @@ public class MedicalRecordsDaoTest {
 		
 		MedicalRecords m = new MedicalRecords(mDao.convertToByteArray(file), file.getName());
 		int m_id = mDao.insert(m);
-		Assert.assertEquals(m_id, 50);
+		Assert.assertEquals(mDao.returnMedicalRecords(m_id).getMr_id(), m.getMr_id());
 		mDao.delete(m);
 	}
 	
