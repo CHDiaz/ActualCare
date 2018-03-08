@@ -24,7 +24,7 @@
 			true
 		</property>
 		<property name="hibernate.hbm2ddl.auto">
-			create
+			update
 		</property>
 		
 		<!-- Mapping for treatments -->
