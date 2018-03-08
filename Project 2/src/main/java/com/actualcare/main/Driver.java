@@ -1,6 +1,5 @@
 package com.actualcare.main;
 
-
 import com.actualcare.beans.Admin;
 import com.actualcare.beans.Doctor;
 import com.actualcare.beans.LoginInfo;
@@ -21,7 +20,6 @@ import org.apache.commons.io.FileUtils;
 import com.actualcare.beans.MedicalRecords;
 import com.actualcare.dao.MedicalRecordsDao;
 import com.actualcare.dao.MedicalRecordsDaoImpl;
-
 
 public class Driver {
 
@@ -55,8 +53,18 @@ public class Driver {
 		int id = tDao.insert(t);
 		System.out.println(id);
 
-		
-
+		/*Insurance insurance = new Insurance("test");
+		InsuranceDao iDao =  new InsuranceDaoImpl();
+		int id = iDao.returnInsurance(insurance);
+		System.out.println(id);
+		*/
+	
+	/*	
+		Insurance i = new Insurance("test");
+		InsuranceDao iDao = new InsuranceDaoImpl();
+		Integer i_id = iDao.insert(i);
+		Assert.assertEquals((iDao.returnInsurance(i_id)).getDoctor(), i.getDoctor().getD_Id());
+	*/	
 /*		MedicalRecordsDao mrDao = new MedicalRecordsDaoImpl();
 		MedicalRecords m = new MedicalRecords();
 		

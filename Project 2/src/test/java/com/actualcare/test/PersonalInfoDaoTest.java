@@ -12,34 +12,34 @@ import com.actualcare.dao.PersonalInfoDaoImpl;
 public class PersonalInfoDaoTest {
 	@Test(priority = 1)
 	public void insertTest() {
-		PersonalInfo pi = new PersonalInfo("test");
-		PersonalInfo piDao = new PersonalInfoImpl();
+		PersonalInfo pi = new PersonalInfo();
+		PersonalInfoDao piDao = new PersonalInfoDaoImpl();
 		Assert.assertEquals(piDao.insert(pi), 50);
 	}
 
 	@Test(priority = 2)
 	public void returnTest() {
-		PersonalInfo i = new PersonalInfo("test");
+		PersonalInfo pi = new PersonalInfo();
 		PersonalInfoDao piDao = new PersonalInfoDaoImpl();
 		int personal_id = piDao.insert(pi);
-		Assert.assertEquals((piDao.returnInsurance(personal_id)).getPersonal_id(), pi.getPersonal_id());
+		Assert.assertEquals((piDao.returnPersonalInfo(personal_id)).getPersonal_id(), pi.getPersonal_id());
 	}
 
 	@Test(priority = 3)
-	public void returnTest() {
-		PersonalInfo i = new PersonalInfo("test");
+	public void returnDocTest() {
+		PersonalInfo pi = new PersonalInfo();
 		PersonalInfoDao piDao = new PersonalInfoDaoImpl();
 		int personal_id = piDao.insert(pi);
-		Assert.assertEquals((piDao.returnInsurance(personal_id)).getPatient(), pi.getPatient().getP_Id());
+		Assert.assertEquals((piDao.returnPersonalInfo(personal_id)).getPatient(), pi.getPatient().getP_Id());
 	}
 	
 	@Test(priority = 4)
 	public void deleteTest() {
-		PersonalInfo i = new PersonalInfo("test");
+		PersonalInfo pi = new PersonalInfo();
 		PersonalInfoDao piDao = new PersonalInfoDaoImpl();
 		int personal_id = piDao.insert(pi);
 		piDao.delete(pi);
-		Assert.assertEquals(iDao.returnInsurance(personal_id), null);
+		Assert.assertEquals(piDao.returnPersonalInfo(personal_id), null);
 	}
 
 }

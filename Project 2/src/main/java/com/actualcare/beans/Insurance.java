@@ -83,6 +83,7 @@ public class Insurance {
 	/**Return the value of doctorList**/
 	public Set<Doctor> getDoctorList() {return doctorList;}
 	
+
 	@Override
 	public String toString() {
 		return "Insurance [insurance_id=" + i_id + ", i_name=" + i_name + "]";

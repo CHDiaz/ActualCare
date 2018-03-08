@@ -1,11 +1,14 @@
 package com.actualcare.dao;
 
+
 import java.util.ArrayList;
+
 import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.Query;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
@@ -75,7 +78,7 @@ public class InsuranceDaoImpl implements InsuranceDao {
 	 * the specificed Insurance i_id.
 	 **/
 	public Insurance returnInsurance(int insurance_id) {
-		logger.info("InsuranceDaoImpl returnTreatment method called.");
+		logger.info("InsuranceDaoImpl returnInsurance method called.");
 		Insurance insurance = null;
 		Session session = HibernateUtil.getSession();
 		Transaction tx = null;
@@ -96,6 +99,35 @@ public class InsuranceDaoImpl implements InsuranceDao {
 		logger.info("Insurance object returned successfully.");
 		return insurance;
 	}
+	
+	public List<Insurance> getAllInsurances(){
+		List<Insurance> insurance = null;
+		Session session = HibernateUtil.getSession();
+		Transaction tx = null;
+		
+		try{
+			
+			tx = session.beginTransaction();
+			/*
+			 * For DQL, we have two options to use for accessing items.
+			 * We can use HQL (Hibernate Query language) which is a semi abstracted
+			 * SQL language that can be used to write DQL queries.
+			 * HQL is notable for not need the 'select *' phrase since it is implied you will
+			 * be grabbing all data to begin with, since you will be populating an object 
+			 * representation anyway.
+			 */
+			insurance = session.createQuery("FROM Insurance").list();
+			
+		}catch(HibernateException e){
+			if(tx!=null){
+				tx.rollback();
+			}
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		return insurance;
+}
 
 	/** Method that returns all Insurance records from the Insurance table. **/
 	public List<Insurance> returnAllInsurance() {
@@ -120,6 +152,9 @@ public class InsuranceDaoImpl implements InsuranceDao {
 			session.close();
 		}
 		return allinsuranceList;
+	}
+
+	
 	}
 
 }

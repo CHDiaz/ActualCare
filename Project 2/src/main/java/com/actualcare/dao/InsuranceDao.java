@@ -30,7 +30,7 @@ public interface InsuranceDao {
 	 * the specificed Insurance i_id.
 	 **/
 	public Insurance returnInsurance(int insurance_id);
-
+  
 	/** Method that returns all Insurance records from the Insurance table. **/
 	public List<Insurance> returnAllInsurance();
 
