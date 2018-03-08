@@ -3,6 +3,7 @@ package com.actualcare.servlets;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -32,6 +33,10 @@ public class helloworld extends HttpServlet {
 		   response.setCharacterEncoding("UTF-8");
 		   response.getWriter().write(json);
 		
+		System.out.println("profavor");
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		out.println("<h1>UNAUTHOTORIZED ACCESS! FBI HAS BEEN ALERTED!</h1>");
 	}
 
 	/**

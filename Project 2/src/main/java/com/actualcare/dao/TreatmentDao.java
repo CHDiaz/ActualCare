@@ -1,5 +1,7 @@
 package com.actualcare.dao;
 
+import java.util.List;
+
 import com.actualcare.beans.Treatment;
 
 /**
@@ -24,4 +26,6 @@ public interface TreatmentDao {
 	 * Treatment record in the database that matches the provided t_id
 	 **/
 	public Treatment returnTreatment(int t_id);
+	/**Method to return all of the treatments in the database as a list of Treatments.**/
+	public List<Treatment> returnAllTreatments();
 }
