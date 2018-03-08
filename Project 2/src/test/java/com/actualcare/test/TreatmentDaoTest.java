@@ -21,7 +21,8 @@ public class TreatmentDaoTest {
 	public void insertTest() {
 		Treatment t = new Treatment("test");
 		TreatmentDao tDao = new TreatmentDaoImpl();
-		Assert.assertEquals(tDao.insert(t), 50);
+		int t_id = tDao.insert(t);
+		Assert.assertEquals(tDao.returnTreatment(t_id).getT_id(), t.getT_id());
 	}
 
 	/** Test for the return method of the TreatmentDaoImpl class. **/
