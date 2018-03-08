@@ -27,10 +27,14 @@ public class Treatment {
 	//@JoinColumn(name="d_id")
 	//private Diagnosis diagnosis;
 	
+	
+	public Treatment() {}
+	
 	public Treatment(Integer t_id, String treatmentInfo) {
 		this.t_id = t_id;
 		this.treatmentInfo = treatmentInfo;
 	}
+	
 	/**Constructor that only takes an argument for treatment for this Treatment object instance**/
 	public Treatment(String treatmentInfo) {this.treatmentInfo = treatmentInfo;}
 	

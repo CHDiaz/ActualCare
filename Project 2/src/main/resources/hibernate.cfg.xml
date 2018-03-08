@@ -24,13 +24,21 @@
 			true
 		</property>
 		<property name="hibernate.hbm2ddl.auto">
-			create
+			update
 		</property>
 		
-		<!-- Mapping for medical records -->
-		<mapping class="com.actualcare.beans.MedicalRecords"/>
 		<!-- Mapping for treatments -->
 		<mapping class="com.actualcare.beans.Treatment"/>
+		<!-- Mapping for medical records -->
+		<mapping class="com.actualcare.beans.MedicalRecords"/>
+		<!-- Mapping for loginInfo -->
+		<mapping class="com.actualcare.beans.LoginInfo"/>
+		<!-- Mapping for Doctor -->
+		<mapping class="com.actualcare.beans.Doctor"/>
+		<!-- Mapping for Admin -->
+		<mapping class="com.actualcare.beans.Admin"/>
+		<!-- Mapping for Patient -->
+		<mapping class="com.actualcare.beans.Patient"/>
 		
 	</session-factory>
 </hibernate-configuration>
