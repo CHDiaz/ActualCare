@@ -156,5 +156,3 @@ public class InsuranceDaoImpl implements InsuranceDao {
 
 	
 	}
-
-}
