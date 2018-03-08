@@ -9,8 +9,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
- * this table has login info for all users
- * mapping to users are done in their own table
+ * this table has login info for all roles
+ * mapping to roles are done in their own table
  * @author haris
  *
  */
@@ -26,27 +26,32 @@ public class LoginInfo {
 	@GeneratedValue(generator="LOGIN_SEQ", strategy=GenerationType.SEQUENCE)
 	private Integer Login_id;
 	
-	//User email
+	//role email
 	@Column
 	private String email;
 	
-	//User password
+	//role password
 	@Column
 	private String password;
 	
+	@Column
+	private String role;
+	
 	//Constructor with ID
-	public LoginInfo(Integer login_id, String email, String password) {
+	public LoginInfo(Integer login_id, String email, String password, String role) {
 		super();
 		Login_id = login_id;
 		this.email = email;
 		this.password = password;
+		this.role = role;
 	}
 	
 	//Constructor without ID
-	public LoginInfo(String email, String password) {
+	public LoginInfo(String email, String password, String role) {
 		super();
 		this.email = email;
 		this.password = password;
+		this.role = role;
 	}
 	
 	//Empty Constructor
@@ -78,13 +83,21 @@ public class LoginInfo {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
+	public String getrole() {
+		return role;
+	}
+
+	public void setrole(String role) {
+		this.role = role;
+	}
+
 	@Override
 	public String toString() {
-		return "LoginInfo [Login_id=" + Login_id + ", email=" + email + ", password=" + password + "]";
+		return "LoginInfo [Login_id=" + Login_id + ", email=" + email + ", password=" + password + ", role=" + role
+				+ "]";
 	}
-	
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -92,9 +105,10 @@ public class LoginInfo {
 		result = prime * result + ((Login_id == null) ? 0 : Login_id.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((role == null) ? 0 : role.hashCode());
 		return result;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -119,7 +133,14 @@ public class LoginInfo {
 				return false;
 		} else if (!password.equals(other.password))
 			return false;
+		if (role == null) {
+			if (other.role != null)
+				return false;
+		} else if (!role.equals(other.role))
+			return false;
 		return true;
 	}
 	
+
+		
 }

@@ -1,5 +1,8 @@
 package com.actualcare.dao;
 
+
+import java.util.ArrayList;
+
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -10,12 +13,16 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 import com.actualcare.beans.Insurance;
+import com.actualcare.beans.Treatment;
 import com.actualcare.util.HibernateUtil;
 
 public class InsuranceDaoImpl implements InsuranceDao {
 	private static Logger logger = Logger.getLogger(InsuranceDaoImpl.class);
 
-	
+	/**
+	 * Method that inserts an Insurance record into the Insurance table, based on
+	 * the specificed Insurance object.
+	 **/
 	public int insert(Insurance i) {
 		logger.info("InsuranceDaoImpl insert method called.");
 
@@ -41,7 +48,10 @@ public class InsuranceDaoImpl implements InsuranceDao {
 		return insurance_id;
 	}
 
-	
+	/**
+	 * Method that deletes an Insurance record from the Insurance table, based on
+	 * the specificed Insurance object.
+	 **/
 	public void delete(Insurance i) {
 		logger.info("InsuranceDaoImpl delete method called.");
 
@@ -63,7 +73,10 @@ public class InsuranceDaoImpl implements InsuranceDao {
 
 	}
 
-	
+	/**
+	 * Method that returns an Insurance record from the Insurance table, based on
+	 * the specificed Insurance i_id.
+	 **/
 	public Insurance returnInsurance(int insurance_id) {
 		logger.info("InsuranceDaoImpl returnInsurance method called.");
 		Insurance insurance = null;
@@ -116,49 +129,32 @@ public class InsuranceDaoImpl implements InsuranceDao {
 		return insurance;
 }
 
-	public Insurance getInsuranceByDocId(Integer doctor){
-		Insurance insurance = null;
+	/** Method that returns all Insurance records from the Insurance table. **/
+	public List<Insurance> returnAllInsurance() {
+		logger.info("InsuranceDaoImpl returnAllInsurance method called.");
+		List<Insurance> allinsuranceList = new ArrayList<Insurance>();
 		Session session = HibernateUtil.getSession();
 		Transaction tx = null;
 		
 		try{
 			
 			tx = session.beginTransaction();
-			System.out.println("Grabbing the object for the first time...");
-			insurance = (Insurance)session.get(Insurance.class, doctor);
-			
+			allinsuranceList = session.createQuery("FROM Insurance").list();
+			logger.info("All Insurance objects obtained");
 			
 		}catch(HibernateException e){
 			if(tx!=null){
 				tx.rollback();
+				logger.info("InsuranceDaoImpl was UNABLE to return all Insurance");
 			}
 			e.printStackTrace();
 		}finally{
 			session.close();
 		}
-		return insurance;
-}
+		return allinsuranceList;
+	}
 
-	public Insurance getInsuranceByPatId(Integer patient){
-		Insurance insurance = null;
-		Session session = HibernateUtil.getSession();
-		Transaction tx = null;
-		
-		try{
-			
-			tx = session.beginTransaction();
-			System.out.println("Grabbing the object for the first time...");
-			insurance = (Insurance)session.get(Insurance.class, patient);
-			
-			
-		}catch(HibernateException e){
-			if(tx!=null){
-				tx.rollback();
-			}
-			e.printStackTrace();
-		}finally{
-			session.close();
-		}
-		return insurance;
-}
+	
+	}
+
 }

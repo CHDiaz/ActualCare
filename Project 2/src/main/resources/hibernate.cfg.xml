@@ -24,9 +24,11 @@
 			true
 		</property>
 		<property name="hibernate.hbm2ddl.auto">
-			create
+			update
 		</property>
 		
+		<!-- Mapping for treatments -->
+		<mapping class="com.actualcare.beans.Insurance"/>
 		<!-- Mapping for treatments -->
 		<mapping class="com.actualcare.beans.Treatment"/>
 		<!-- Mapping for medical records -->
