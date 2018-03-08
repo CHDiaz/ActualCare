@@ -141,5 +141,6 @@ public class LoginInfo {
 		return true;
 	}
 	
-}
 
+		
+}
