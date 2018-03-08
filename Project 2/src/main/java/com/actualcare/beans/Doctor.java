@@ -2,6 +2,7 @@ package com.actualcare.beans;
 
 import java.util.HashSet;
 import java.util.Set;
+import com.actualcare.beans.Insurance;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

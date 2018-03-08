@@ -28,6 +28,8 @@
 		</property>
 		
 		<!-- Mapping for treatments -->
+		<mapping class="com.actualcare.beans.Insurance"/>
+		<!-- Mapping for treatments -->
 		<mapping class="com.actualcare.beans.Treatment"/>
 		<!-- Mapping for medical records -->
 		<mapping class="com.actualcare.beans.MedicalRecords"/>

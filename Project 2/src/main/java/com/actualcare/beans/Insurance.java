@@ -23,10 +23,10 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="Insurance")
+@Table(name="INSURANCE")
 public class Insurance {
 	@Id
-	@Column(name="insurance_id")
+	@Column(name="i_id")
 	@SequenceGenerator(sequenceName="I_SEQ", name="I_SEQ")
 	@GeneratedValue(generator="I_SEQ", strategy=GenerationType.SEQUENCE)
 	private Integer i_id;
