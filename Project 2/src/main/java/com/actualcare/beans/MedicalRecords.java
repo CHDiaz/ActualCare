@@ -1,5 +1,7 @@
 package com.actualcare.beans;
 
+import java.util.Arrays;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -63,4 +65,51 @@ public class MedicalRecords {
 	/**Returns a list of of fileName of this MedicalRecords Object instance**/
 	public String getFileName() {return fileName;}
 
+	@Override
+	public String toString() {
+		return "MedicalRecords [mr_id=" + mr_id + ", medicalRecords=" + Arrays.toString(medicalRecords) + ", fileName="
+				+ fileName + ", patientMedicalRecords=" + patientMedicalRecords + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((fileName == null) ? 0 : fileName.hashCode());
+		result = prime * result + Arrays.hashCode(medicalRecords);
+		result = prime * result + ((mr_id == null) ? 0 : mr_id.hashCode());
+		result = prime * result + ((patientMedicalRecords == null) ? 0 : patientMedicalRecords.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		MedicalRecords other = (MedicalRecords) obj;
+		if (fileName == null) {
+			if (other.fileName != null)
+				return false;
+		} else if (!fileName.equals(other.fileName))
+			return false;
+		if (!Arrays.equals(medicalRecords, other.medicalRecords))
+			return false;
+		if (mr_id == null) {
+			if (other.mr_id != null)
+				return false;
+		} else if (!mr_id.equals(other.mr_id))
+			return false;
+		if (patientMedicalRecords == null) {
+			if (other.patientMedicalRecords != null)
+				return false;
+		} else if (!patientMedicalRecords.equals(other.patientMedicalRecords))
+			return false;
+		return true;
+	}
+	
+	
 }
