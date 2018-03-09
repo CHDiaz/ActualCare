@@ -50,6 +50,10 @@ public class Patient {
 	@JoinColumn(name="Patient_Insurance")
 	private Insurance myInsurance;
 	
+	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="Patient_Doctor")
+	private Doctor PCP;
+	
 	@OneToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="Login_id")
 	private LoginInfo login;
@@ -125,7 +129,7 @@ public class Patient {
 	/**All args constructor**/
 	public Patient(Integer p_id, Allergy myAllgeries, Set<Appointments> myAppointments, Set<Diagnosis> medicalHistory,
 			Insurance myInsurance, LoginInfo login, Set<MedicalRecords> medicalTests, PersonalInfo myPersonalInfo,
-			Sympton mySymptons, Treatment myMedications) {
+			Sympton mySymptons, Treatment myMedications, Doctor PCP) {
 		this.p_id = p_id;
 		this.myAllgeries = myAllgeries;
 		this.myAppointments = myAppointments;
@@ -136,6 +140,7 @@ public class Patient {
 		this.myPersonalInfo = myPersonalInfo;
 		this.mySymptons = mySymptons;
 		this.myMedications = myMedications;
+		this.PCP = PCP;
 	}
 
 	/**Sets the value of p_id**/

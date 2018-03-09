@@ -40,7 +40,7 @@ public class Driver {
 //				(new PersonalInfo("harish","chandramohan",20,"MALE",300,"Allen","NewYork","NY")));
 //		PatientDaoImpl pp = new PatientDaoImpl();
 //		pp.insert(p);
-		
+//		
 		// Doctor login data insert test
 		Doctor d = new Doctor(null, (new LoginInfo("christian@com","christian","doctor")));
 		DoctorDao.insertDoctor(d);
