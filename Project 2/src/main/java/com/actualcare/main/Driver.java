@@ -27,7 +27,11 @@ public class Driver {
 	public static void main(String[] args) {
 		
 		// Patient login data insert test
-		Patient p = new Patient((new LoginInfo("harish@com","harish","patient")));
+		
+		Patient p = new Patient(
+				(new Insurance("WELL_CARE")),
+				(new LoginInfo("harish@com","harish","patient")),
+				(new PersonalInfo("harish","chandramohan",20,"MALE",300,"Allen","NewYork","NY")));
 		PatientDaoImpl pp = new PatientDaoImpl();
 		pp.insert(p);
 		
