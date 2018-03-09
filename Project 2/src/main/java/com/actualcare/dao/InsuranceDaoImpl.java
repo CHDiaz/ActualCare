@@ -162,7 +162,7 @@ public class InsuranceDaoImpl implements InsuranceDao {
 
 		try {
 			tx = session.beginTransaction();
-			insurance = (Insurance) session.createCriteria(Insurance.class).add(Restrictions.idEq(i_name)).uniqueResult();
+			insurance = (Insurance) session.createCriteria(Insurance.class).add( Restrictions.like("i_name", i_name) ).uniqueResult();
 
 		} catch (HibernateException e) {
 			if (tx != null) {

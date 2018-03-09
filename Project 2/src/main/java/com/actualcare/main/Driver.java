@@ -5,6 +5,7 @@ import com.actualcare.beans.Doctor;
 import com.actualcare.beans.Insurance;
 import com.actualcare.beans.LoginInfo;
 import com.actualcare.beans.Patient;
+
 import com.actualcare.dao.AdminDao;
 import com.actualcare.dao.DoctorDao;
 import com.actualcare.dao.InsuranceDao;
@@ -12,14 +13,28 @@ import com.actualcare.dao.InsuranceDaoImpl;
 import com.actualcare.dao.PatientDao;
 import com.actualcare.dao.PatientDaoImpl;
 
+import com.actualcare.dao.LoginInfoDao;
+import com.actualcare.dao.PatientDao;
+import com.actualcare.dao.TreatmentDao;
+import com.actualcare.dao.TreatmentDaoImpl;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
+
+import com.actualcare.beans.MedicalRecords;
+import com.actualcare.dao.MedicalRecordsDao;
+import com.actualcare.dao.MedicalRecordsDaoImpl;
+
+
 public class Driver {
 
 	public static void main(String[] args) {
 		
 		// Patient login data insert test
-		Patient p = new Patient((new LoginInfo("harish@com","harish","patient")));
-		PatientDao pDao = new PatientDaoImpl();
-		pDao.insert(p);
+		//Patient p = new Patient((new LoginInfo("harish@com","harish","patient")));
+		//PatientDao.insertPatient(p);
 		
 		// Doctor login data insert test
 		Doctor d = new Doctor(null, (new LoginInfo("christian@com","christian","doctor")));
@@ -38,7 +53,9 @@ public class Driver {
 //		Treatment t1 = tDao.returnTreatment(id);
 //		System.out.println(t1.getT_id());
 //		System.out.println(t.getT_id());
+		
 //		System.out.println(LoginInfoDao.getAllLogin());
+
 		// Treatment data insert test
 /*		Treatment t = new Treatment("test");
 		TreatmentDao tDao = new TreatmentDaoImpl();
@@ -51,12 +68,14 @@ public class Driver {
 		System.out.println(id);
 		*/
 	
-	/*	
-		Insurance i = new Insurance("test");
-		InsuranceDao iDao = new InsuranceDaoImpl();
-		Integer i_id = iDao.insert(i);
-		Assert.assertEquals((iDao.returnInsurance(i_id)).getDoctor(), i.getDoctor().getD_Id());
-	*/	
+	
+		//Insurance i = new Insurance("test");
+//		InsuranceDao iDao = new InsuranceDaoImpl();
+		//Integer i_id = iDao.insert(i);
+//		Insurance i2 = iDao.returnInsuranceByName("test");
+//		System.out.println(i2.getI_name().equals("test"));
+		//Assert.assertEquals((iDao.returnInsurance(i_id)).getDoctor(), i.getDoctor().getD_Id());
+		
 /*		MedicalRecordsDao mrDao = new MedicalRecordsDaoImpl();
 		MedicalRecords m = new MedicalRecords();
 		
