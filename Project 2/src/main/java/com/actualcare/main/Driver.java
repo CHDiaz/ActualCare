@@ -5,7 +5,6 @@ import java.util.Set;
 import com.actualcare.beans.Doctor;
 import com.actualcare.beans.Insurance;
 import com.actualcare.beans.LoginInfo;
-<<<<<<< HEAD
 import com.actualcare.beans.Patient;
 import com.actualcare.beans.Treatment;
 import com.actualcare.dao.AdminDao;
@@ -25,34 +24,22 @@ import org.apache.commons.io.FileUtils;
 import com.actualcare.beans.MedicalRecords;
 import com.actualcare.dao.MedicalRecordsDao;
 import com.actualcare.dao.MedicalRecordsDaoImpl;
-=======
->>>>>>> 13a00e9bf6c0957caad1236e0d445422e76edc10
 
 public class Driver {
 
 	public static void main(String[] args) {
 		
 		// Patient login data insert test
-<<<<<<< HEAD
 		//Patient p = new Patient((new LoginInfo("harish@com","harish","patient")));
 		//PatientDao.insertPatient(p);
-=======
-	/*	Patient p = new Patient((new LoginInfo("harish@com","harish","patient")));
-		PatientDao.insert(p);*/
->>>>>>> 13a00e9bf6c0957caad1236e0d445422e76edc10
 		
 		// Doctor login data insert test
 /*		Doctor d = new Doctor((new LoginInfo("christian@com","christian","doctor")));
 		DoctorDao.insertDoctor(d);*/
 		
 		// Admin login data insert test
-<<<<<<< HEAD
-		//Admin a = new Admin((new LoginInfo("steven@com","steven","admin")));
-		//AdminDao.insertAdmin(a);
-=======
 //		Admin a = new Admin((new LoginInfo("steven@com","steven","admin")));
 //		AdminDao.insertAdmin(a);
->>>>>>> 13a00e9bf6c0957caad1236e0d445422e76edc10
 		
 //		// Treatement data insert test
 //		Treatment t = new Treatment("test");
@@ -63,11 +50,9 @@ public class Driver {
 //		Treatment t1 = tDao.returnTreatment(id);
 //		System.out.println(t1.getT_id());
 //		System.out.println(t.getT_id());
-<<<<<<< HEAD
-		//System.out.println(LoginInfoDao.getAllLogin());
-=======
+		
 //		System.out.println(LoginInfoDao.getAllLogin());
->>>>>>> 13a00e9bf6c0957caad1236e0d445422e76edc10
+
 		// Treatment data insert test
 /*		Treatment t = new Treatment("test");
 		TreatmentDao tDao = new TreatmentDaoImpl();
