@@ -32,7 +32,16 @@ public class PatientDaoImpl implements PatientDao {
 
 		try {
 			tx = session.beginTransaction();
-			session.save(p.getLogin());
+	/*		session.save(p.getLogin());
+			session.save(p.getMedicalHistory());
+			session.save(p.getMedicalTests());
+			session.save(p.getMyAllgeries());
+			session.save(p.getMyAppointments());
+			session.save(p.getMyInsurance());
+			session.save(p.getMyMedications());
+			session.save(p.getMyPersonalInfo());
+			session.save(p.getMySymptons());
+			session.save(p.getMyMedications());*/
 			patient_id = (int) session.save(p);
 			tx.commit();
 			logger.info("Patient object inserted successfully");
@@ -48,6 +57,40 @@ public class PatientDaoImpl implements PatientDao {
 		}
 		return patient_id;
 	}
+	
+	/**
+	 * Method for inserting a record after registering into the Patients table, based on the
+	 * provided Patient object.
+	 **/
+	public int insertRegister(Patient p) {
+		logger.info("PatientDaoImpl insertRegister method called.");
+
+		Session session = HibernateUtil.getSession();
+		Transaction tx = null;
+		int patient_id = 0;
+
+		try {
+			tx = session.beginTransaction();
+			session.save(p.getLogin());
+			session.save(p.getMyInsurance());
+			session.save(p.getMyPersonalInfo());
+
+			patient_id = (int) session.save(p);
+			tx.commit();
+			logger.info("Patient object inserted successfully");
+
+		} catch (HibernateException e) {
+			if (tx != null) {
+				tx.rollback();
+				logger.error("Patient object was NOT inserted");
+			}
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return patient_id;
+	}
+	
 
 	/**
 	 * Method for deleting a record from the Patients table, based on the

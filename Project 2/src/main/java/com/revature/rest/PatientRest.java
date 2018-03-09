@@ -1,8 +1,6 @@
 package com.revature.rest;
 
-import java.util.List;
-
-import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -22,11 +20,11 @@ public class PatientRest {
 	AllergyDao agDao = new AllergyDaoImpl();
 	
 	
-	@GET
-	@Path("/get")
+	@POST
+	@Path("/register")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Patient> getAllPatients(){
-		return null;
+	public void insertRegistered(Patient p){
+		pDao.insertRegister(p);
 	}
 
 }

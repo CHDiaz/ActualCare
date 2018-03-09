@@ -21,6 +21,11 @@ public interface PatientDao {
 	 **/
 	public int insert(Patient p);
 	/**
+	 * Method for inserting a record after registering into the Patients table, based on the
+	 * provided Patient object.
+	 **/
+	public int insertRegister(Patient p);
+	/**
 	 * Method for deleting a record from the Patients table, based on the
 	 * provided Patient object.
 	 **/
