@@ -13,7 +13,8 @@ public class DiagnosisDaoTest {
 	public void insertTest() {
 		Diagnosis d = new Diagnosis();
 		DiagnosisDao dDao = new DiagnosisDaoImpl();
-		Assert.assertEquals(dDao.insert(d), 50);
+		Integer d_id = dDao.insert(d);
+		Assert.assertEquals(dDao.returnDiagnosis(d_id).getDiagnosis_id(), d_id);
 	}
 
 	@Test(priority = 2)

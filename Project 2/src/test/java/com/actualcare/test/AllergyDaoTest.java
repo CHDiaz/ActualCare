@@ -13,7 +13,8 @@ public class AllergyDaoTest {
 	public void insertTest() {
 		Allergy a = new Allergy("test");
 		AllergyDao aDao = new AllergyDaoImpl();
-		Assert.assertEquals(aDao.insert(a), 50);
+		Integer i_id = aDao.insert(a);
+		Assert.assertEquals(aDao.returnAllergy(i_id).getA_id(), i_id);
 	}
 
 	
