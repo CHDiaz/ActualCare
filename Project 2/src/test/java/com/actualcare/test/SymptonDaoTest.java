@@ -13,7 +13,8 @@ public class SymptonDaoTest {
 	public void insertTest() {
 		Sympton s = new Sympton("test");
 		SymptonDao sDao = new SymptonDaoImpl();
-		Assert.assertEquals(sDao.insert(s), 50);
+		Integer s_id = sDao.insert(s);
+		Assert.assertEquals(sDao.returnSympton(s_id).getSympton_id(), s_id);
 	}
 
 	
@@ -21,8 +22,8 @@ public class SymptonDaoTest {
 	public void returnTest() {
 		Sympton s = new Sympton("test");
 		SymptonDao sDao = new SymptonDaoImpl();
-		int sympton_id = sDao.insert(s);
-		Assert.assertEquals((sDao.getSymptonByPatId(sympton_id)).getPatient(), s.getPatient().getP_Id());
+		Integer sympton_id = sDao.insert(s);
+		Assert.assertEquals(sDao.returnSympton(sympton_id).getSympton_id(), sympton_id);
 	}
 	
 	@Test(priority = 3)
