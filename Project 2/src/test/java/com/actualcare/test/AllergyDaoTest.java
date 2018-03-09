@@ -15,6 +15,7 @@ public class AllergyDaoTest {
 		AllergyDao aDao = new AllergyDaoImpl();
 		Integer i_id = aDao.insert(a);
 		Assert.assertEquals(aDao.returnAllergy(i_id).getA_id(), i_id);
+		aDao.delete(a);
 	}
 
 	
@@ -24,6 +25,7 @@ public class AllergyDaoTest {
 		AllergyDao aDao = new AllergyDaoImpl();
 		Integer allergy_id = aDao.insert(a);
 		Assert.assertEquals(aDao.returnAllergy(allergy_id).getA_id(), allergy_id);
+		aDao.delete(a);
 	}
 	
 	@Test(priority = 3)
