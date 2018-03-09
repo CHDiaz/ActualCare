@@ -1,25 +1,10 @@
 package com.actualcare.main;
 
-import java.util.HashSet;
 import java.util.Set;
 
-import com.actualcare.beans.Admin;
-import com.actualcare.beans.Allergy;
-import com.actualcare.beans.Appointments;
-import com.actualcare.beans.Diagnosis;
+import com.actualcare.beans.Doctor;
 import com.actualcare.beans.Insurance;
 import com.actualcare.beans.LoginInfo;
-import com.actualcare.beans.MedicalRecords;
-import com.actualcare.beans.Patient;
-import com.actualcare.beans.PersonalInfo;
-import com.actualcare.beans.Sympton;
-import com.actualcare.beans.Treatment;
-import com.actualcare.dao.AdminDao;
-import com.actualcare.dao.AllergyDao;
-import com.actualcare.dao.AllergyDaoImpl;
-import com.actualcare.dao.LoginInfoDao;
-import com.actualcare.dao.PatientDao;
-import com.actualcare.dao.PatientDaoImpl;
 
 public class Driver {
 
@@ -117,7 +102,44 @@ public class Driver {
 //		pDao.insert(p);
 //		pDao.delete(p);
 		
-	
+		//Insurance(String i_name, Set<Doctor> doctorList)
+		Insurance i1 = new Insurance("UNITED_HEALTH");
+		Insurance i2 = new Insurance("WELL_CARE");
+		Insurance i3 = new Insurance("WELL_POINT");
+		Insurance i4 = new Insurance("OSCAR");
+		Insurance i5 = new Insurance("NO_INSURANCE");
+		
+		//LoginInfo(String email, String password, String role)
+		LoginInfo l1 = new LoginInfo("manbert@dogmail.com","manbert","doctor");
+		LoginInfo l2 = new LoginInfo("docman@dogmail.com", "docman","doctor");
+		LoginInfo l3 = new LoginInfo("healing@dogmail.com","healing","doctor");
+		LoginInfo l4 = new LoginInfo("stephanie@dogmail.com","stephanie","doctor");
+		LoginInfo l5 = new LoginInfo("bobbert@dogmail.com","bobbert","doctor");
+		
+		//Doctor(String name, LoginInfo login)
+		Doctor d1 = new Doctor("MANBERT", l1);
+		Doctor d2 = new Doctor("DOCMAN", l2);
+		Doctor d3 = new Doctor("HEALING", l3);
+		Doctor d4 = new Doctor("STEPHANIE", l4);
+		Doctor d5 = new Doctor("BOBBERT", l5) ;
+		
+		d1.addInsurance(i1);
+		d1.addInsurance(i2);
+		
+		d2.addInsurance(i1);
+		d2.addInsurance(i2);
+		d2.addInsurance(i3);
+		
+		d3.addInsurance(i4);
+		d3.addInsurance(i5);
+		
+		d4.addInsurance(i3);
+		
+		d5.addInsurance(i1);
+		d5.addInsurance(i2);
+		d5.addInsurance(i3);
+		d5.addInsurance(i4);
+		d5.addInsurance(i5);
 	}
 	
 }
