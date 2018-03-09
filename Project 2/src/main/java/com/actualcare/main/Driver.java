@@ -1,41 +1,41 @@
 package com.actualcare.main;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import com.actualcare.beans.Admin;
-import com.actualcare.beans.Doctor;
+import com.actualcare.beans.Allergy;
+import com.actualcare.beans.Appointments;
+import com.actualcare.beans.Diagnosis;
+import com.actualcare.beans.Insurance;
 import com.actualcare.beans.LoginInfo;
+import com.actualcare.beans.MedicalRecords;
 import com.actualcare.beans.Patient;
+import com.actualcare.beans.PersonalInfo;
+import com.actualcare.beans.Sympton;
 import com.actualcare.beans.Treatment;
 import com.actualcare.dao.AdminDao;
-import com.actualcare.dao.DoctorDao;
+import com.actualcare.dao.AllergyDao;
+import com.actualcare.dao.AllergyDaoImpl;
 import com.actualcare.dao.LoginInfoDao;
 import com.actualcare.dao.PatientDao;
-import com.actualcare.dao.TreatmentDao;
-import com.actualcare.dao.TreatmentDaoImpl;
-
-import java.io.File;
-import java.io.IOException;
-
-import org.apache.commons.io.FileUtils;
-
-import com.actualcare.beans.MedicalRecords;
-import com.actualcare.dao.MedicalRecordsDao;
-import com.actualcare.dao.MedicalRecordsDaoImpl;
+import com.actualcare.dao.PatientDaoImpl;
 
 public class Driver {
 
 	public static void main(String[] args) {
 		
 		// Patient login data insert test
-		Patient p = new Patient((new LoginInfo("harish@com","harish","patient")));
-		PatientDao.insertPatient(p);
+	/*	Patient p = new Patient((new LoginInfo("harish@com","harish","patient")));
+		PatientDao.insert(p);*/
 		
 		// Doctor login data insert test
 /*		Doctor d = new Doctor((new LoginInfo("christian@com","christian","doctor")));
 		DoctorDao.insertDoctor(d);*/
 		
 		// Admin login data insert test
-		Admin a = new Admin((new LoginInfo("steven@com","steven","admin")));
-		AdminDao.insertAdmin(a);
+//		Admin a = new Admin((new LoginInfo("steven@com","steven","admin")));
+//		AdminDao.insertAdmin(a);
 		
 //		// Treatement data insert test
 //		Treatment t = new Treatment("test");
@@ -46,7 +46,7 @@ public class Driver {
 //		Treatment t1 = tDao.returnTreatment(id);
 //		System.out.println(t1.getT_id());
 //		System.out.println(t.getT_id());
-		System.out.println(LoginInfoDao.getAllLogin());
+//		System.out.println(LoginInfoDao.getAllLogin());
 		// Treatment data insert test
 /*		Treatment t = new Treatment("test");
 		TreatmentDao tDao = new TreatmentDaoImpl();
@@ -95,6 +95,28 @@ public class Driver {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}*/
+//		PatientDao pDao = new PatientDaoImpl();
+//
+//		
+//		
+//		Allergy myAllgeries = new Allergy("cats");
+//		Set<Appointments> myAppointments =  new HashSet<Appointments>();
+//		Set<Diagnosis> medicalHistory = null;
+//		Insurance myInsurance = new Insurance("insurance a");
+//		LoginInfo login = new LoginInfo("patient@Dog.com","password","patient");
+//		Set<MedicalRecords> medicalTests = null;
+//		PersonalInfo myPersonalInfo = new PersonalInfo();
+//		Sympton mySymptons = new Sympton("I am sick");
+//		Treatment myMedications = new Treatment("Vitamin D");
+//		
+//		
+//		Patient p = new Patient();
+//		p.setLogin();
+//		
+		
+//		pDao.insert(p);
+//		pDao.delete(p);
+		
 	
 	}
 	

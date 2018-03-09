@@ -84,7 +84,17 @@ public class Patient {
 		this.login = login;}
 
 	/**Set less all args constructor**/
-	public Patient(Integer p_id, Allergy myAllgeries, Insurance myInsurance, LoginInfo login,
+	public Patient(Insurance myInsurance, LoginInfo login,PersonalInfo myPersonalInfo) {
+		this.myAppointments = new HashSet<Appointments>();
+		this.medicalHistory = new HashSet<Diagnosis>();
+		this.medicalTests = new HashSet<MedicalRecords>();
+		this.myInsurance = myInsurance;
+		this.login = login;
+		this.myPersonalInfo = myPersonalInfo;
+	}
+	
+	/**Set less all args constructor**/
+	public Patient( Allergy myAllgeries, Insurance myInsurance, LoginInfo login,
 			PersonalInfo myPersonalInfo, Sympton mySymptons, Treatment myMedications) {
 		this.myAppointments = new HashSet<Appointments>();
 		this.medicalHistory = new HashSet<Diagnosis>();
