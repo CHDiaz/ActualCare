@@ -37,7 +37,7 @@ public class Insurance {
 	@OneToMany(mappedBy = "myInsurance", fetch=FetchType.EAGER)
 	private Set<Patient> customers;
 	
-	@ManyToMany(mappedBy = "insuranceList", fetch = FetchType.EAGER)
+	@ManyToMany(mappedBy = "insuranceList",  fetch = FetchType.LAZY)
 	private Set<Doctor> doctorList;
 	
 	/**No args constructor that intializes customers and doctorList to a new HashSet**/
@@ -99,10 +99,10 @@ public class Insurance {
 		doctorList.add(d);
 	}
 	
-	@Override
+	/*@Override
 	public String toString() {
 		return "Insurance [insurance_id=" + i_id + ", i_name=" + i_name + "]";
-	}
+	}*/
 	@Override
 	public int hashCode() {
 		final int prime = 31;

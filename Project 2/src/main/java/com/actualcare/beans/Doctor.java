@@ -44,7 +44,7 @@ public class Doctor {
 	@JoinColumn(name="Login_id")
 	private LoginInfo login;
 	
-	@ManyToMany(cascade = {CascadeType.ALL}, fetch=FetchType.EAGER)
+	@ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	@JoinTable(
 			name = "Doctor_Insurance",
 			joinColumns = { @JoinColumn(name = "Doc_id") },
@@ -166,12 +166,12 @@ public class Doctor {
 		return true;
 	}
 
-	@Override
+/*	@Override
 	public String toString() {
 		return "Doctor [Doc_id=" + Doc_id + ", name=" + name + ", login=" + login + ", insuranceList=" + insuranceList
 				+ ", myAppointments=" + myAppointments + "]";
 	}
-
+*/
 	
 	
 }

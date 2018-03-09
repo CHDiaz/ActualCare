@@ -42,12 +42,12 @@ public class Driver {
 //		pp.insert(p);
 //		
 		// Doctor login data insert test
-		Doctor d = new Doctor(null, (new LoginInfo("christian@com","christian","doctor")));
-		DoctorDao.insertDoctor(d);
+/*		Doctor d = new Doctor(null, (new LoginInfo("christian@com","christian","doctor")));
+		DoctorDao.insertDoctor(d);*/
 		
 		// Admin login data insert test
-		Admin a = new Admin((new LoginInfo("steven@com","steven","admin")));
-		AdminDao.insertAdmin(a);
+/*		Admin a = new Admin((new LoginInfo("steven@com","steven","admin")));
+		AdminDao.insertAdmin(a);*/
 		
 //		// Treatement data insert test
 //		Treatment t = new Treatment("test");
@@ -137,7 +137,7 @@ public class Driver {
 //		pDao.delete(p);
 		
 		//Insurance(String i_name, Set<Doctor> doctorList)
-		Insurance i1 = new Insurance("UNITED_HEALTH");
+/*		Insurance i1 = new Insurance("UNITED_HEALTH");
 		Insurance i2 = new Insurance("WELL_CARE");
 		Insurance i3 = new Insurance("WELL_POINT");
 		Insurance i4 = new Insurance("OSCAR");
@@ -209,7 +209,7 @@ public class Driver {
 		
 		InsuranceDao iDao = new InsuranceDaoImpl();
 		
-/*		System.out.println("=======INSERT INSURANCE==========");
+		System.out.println("=======INSERT INSURANCE==========");
 		
 		iDao.insert(i1);
 		iDao.insert(i2);
@@ -217,6 +217,14 @@ public class Driver {
 		iDao.insert(i4);
 		iDao.insert(i5);
 		System.out.println("Stuff inserted");*/
+		
+		InsuranceDao iDao = new InsuranceDaoImpl();
+		//Insurance i = new Insurance("WTF");
+		//iDao.insert(i);
+		Insurance i2 = iDao.returnInsuranceByName("WELL_CARE");
+		//iDao.delete(i);
+		System.out.println(i2.getI_name());
+		
 	}
 	
 }
