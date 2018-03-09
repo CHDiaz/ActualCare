@@ -57,6 +57,14 @@ public class Insurance {
 		this.customers = customers;
 		this.doctorList = doctorList;
 	}
+	
+	/**Set up args constructor**/
+	public Insurance(String i_name, Set<Doctor> doctorList) {
+		this.i_name = i_name;
+		this.customers  = new HashSet<Patient>();
+		this.doctorList = doctorList;
+	}
+
 	/**All args constructor**/
 	public Insurance(Integer i_id, String i_name, Set<Patient> customers, Set<Doctor> doctorList) {
 		this.i_id = i_id;
@@ -82,7 +90,6 @@ public class Insurance {
 	public Set<Patient> getCustomers() {return customers;}
 	/**Return the value of doctorList**/
 	public Set<Doctor> getDoctorList() {return doctorList;}
-	
 
 	@Override
 	public String toString() {

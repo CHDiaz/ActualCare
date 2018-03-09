@@ -56,6 +56,14 @@ public class Doctor {
 	
 	/**No args constructor**/
 	public Doctor() { this.insuranceList  = new HashSet<Insurance>();}
+	
+	/**constructor without Doc_id field, Insurance field**/
+	public Doctor(String name, LoginInfo login) {
+		super();
+		this.name = name;
+		this.login = login;
+		this.insuranceList  = new HashSet<Insurance>();
+	}
 
 	/**constructor without Doc_id field**/
 	public Doctor(String name, LoginInfo login, Set<Insurance> insuranceList) {
@@ -92,6 +100,10 @@ public class Doctor {
 	/**Returns the value of the set of insuranceList**/
 	public Set<Insurance> getInsuranceList() {
 		return insuranceList;
+	}
+	
+	public void addInsurance(Insurance i) {
+		insuranceList.add(i);
 	}
 
 }

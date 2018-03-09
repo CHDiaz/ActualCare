@@ -1,32 +1,43 @@
 package com.actualcare.dao;
 
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import java.util.List;
 
 import com.actualcare.beans.Patient;
-import com.actualcare.beans.PersonalInfo;
-import com.actualcare.util.HibernateUtil;
 
 /**
- * This Patient is incomplete
- * Add as much feature to it
- * @author haris
+ * @author Harish Kumar Chandra
  *
  */
-public class PatientDao {
+
+/**
+ * @author Christian Diaz
+ *
+ */
+public interface PatientDao {
 	
-	//saving login and then patient data 
-	public static void insertPatient(Patient p) {
-		
-		Session session = HibernateUtil.getSession();
-		Transaction tx = session.beginTransaction();
-		
-		session.save(p.getLogin());
-		session.save(p);
-		
-		tx.commit();
-		session.close();
-	}
-		
+	/**
+	 * Method for inserting a record into the Patients table, based on the
+	 * provided Patient object.
+	 **/
+	public int insert(Patient p);
+	/**
+	 * Method for inserting a record after registering into the Patients table, based on the
+	 * provided Patient object.
+	 **/
+	public int insertRegister(Patient p);
+	/**
+	 * Method for deleting a record from the Patients table, based on the
+	 * provided Patient object.
+	 **/
+	public void delete(Patient p);
+	/**
+	 * Method for returning a record from the Patients table as a Patient object, 
+	 * based on the provided Patient id.
+	 **/
+	public Patient returnPatient(int p_id);
+	/**
+	 * Method for returning all records from the Patients table as a list of Patients.
+	 **/
+	public List<Patient> returnAllPatients();
 	
 }

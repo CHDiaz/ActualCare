@@ -1,9 +1,11 @@
 package com.actualcare.main;
 
-import com.actualcare.beans.Admin;
+import java.util.Set;
+
 import com.actualcare.beans.Doctor;
 import com.actualcare.beans.Insurance;
 import com.actualcare.beans.LoginInfo;
+<<<<<<< HEAD
 import com.actualcare.beans.Patient;
 import com.actualcare.beans.Treatment;
 import com.actualcare.dao.AdminDao;
@@ -23,22 +25,34 @@ import org.apache.commons.io.FileUtils;
 import com.actualcare.beans.MedicalRecords;
 import com.actualcare.dao.MedicalRecordsDao;
 import com.actualcare.dao.MedicalRecordsDaoImpl;
+=======
+>>>>>>> 13a00e9bf6c0957caad1236e0d445422e76edc10
 
 public class Driver {
 
 	public static void main(String[] args) {
 		
 		// Patient login data insert test
+<<<<<<< HEAD
 		//Patient p = new Patient((new LoginInfo("harish@com","harish","patient")));
 		//PatientDao.insertPatient(p);
+=======
+	/*	Patient p = new Patient((new LoginInfo("harish@com","harish","patient")));
+		PatientDao.insert(p);*/
+>>>>>>> 13a00e9bf6c0957caad1236e0d445422e76edc10
 		
 		// Doctor login data insert test
 /*		Doctor d = new Doctor((new LoginInfo("christian@com","christian","doctor")));
 		DoctorDao.insertDoctor(d);*/
 		
 		// Admin login data insert test
+<<<<<<< HEAD
 		//Admin a = new Admin((new LoginInfo("steven@com","steven","admin")));
 		//AdminDao.insertAdmin(a);
+=======
+//		Admin a = new Admin((new LoginInfo("steven@com","steven","admin")));
+//		AdminDao.insertAdmin(a);
+>>>>>>> 13a00e9bf6c0957caad1236e0d445422e76edc10
 		
 //		// Treatement data insert test
 //		Treatment t = new Treatment("test");
@@ -49,7 +63,11 @@ public class Driver {
 //		Treatment t1 = tDao.returnTreatment(id);
 //		System.out.println(t1.getT_id());
 //		System.out.println(t.getT_id());
+<<<<<<< HEAD
 		//System.out.println(LoginInfoDao.getAllLogin());
+=======
+//		System.out.println(LoginInfoDao.getAllLogin());
+>>>>>>> 13a00e9bf6c0957caad1236e0d445422e76edc10
 		// Treatment data insert test
 /*		Treatment t = new Treatment("test");
 		TreatmentDao tDao = new TreatmentDaoImpl();
@@ -100,7 +118,66 @@ public class Driver {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}*/
-	
+//		PatientDao pDao = new PatientDaoImpl();
+//
+//		
+//		
+//		Allergy myAllgeries = new Allergy("cats");
+//		Set<Appointments> myAppointments =  new HashSet<Appointments>();
+//		Set<Diagnosis> medicalHistory = null;
+//		Insurance myInsurance = new Insurance("insurance a");
+//		LoginInfo login = new LoginInfo("patient@Dog.com","password","patient");
+//		Set<MedicalRecords> medicalTests = null;
+//		PersonalInfo myPersonalInfo = new PersonalInfo();
+//		Sympton mySymptons = new Sympton("I am sick");
+//		Treatment myMedications = new Treatment("Vitamin D");
+//		
+//		
+//		Patient p = new Patient();
+//		p.setLogin();
+//		
+		
+//		pDao.insert(p);
+//		pDao.delete(p);
+		
+		//Insurance(String i_name, Set<Doctor> doctorList)
+		Insurance i1 = new Insurance("UNITED_HEALTH");
+		Insurance i2 = new Insurance("WELL_CARE");
+		Insurance i3 = new Insurance("WELL_POINT");
+		Insurance i4 = new Insurance("OSCAR");
+		Insurance i5 = new Insurance("NO_INSURANCE");
+		
+		//LoginInfo(String email, String password, String role)
+		LoginInfo l1 = new LoginInfo("manbert@dogmail.com","manbert","doctor");
+		LoginInfo l2 = new LoginInfo("docman@dogmail.com", "docman","doctor");
+		LoginInfo l3 = new LoginInfo("healing@dogmail.com","healing","doctor");
+		LoginInfo l4 = new LoginInfo("stephanie@dogmail.com","stephanie","doctor");
+		LoginInfo l5 = new LoginInfo("bobbert@dogmail.com","bobbert","doctor");
+		
+		//Doctor(String name, LoginInfo login)
+		Doctor d1 = new Doctor("MANBERT", l1);
+		Doctor d2 = new Doctor("DOCMAN", l2);
+		Doctor d3 = new Doctor("HEALING", l3);
+		Doctor d4 = new Doctor("STEPHANIE", l4);
+		Doctor d5 = new Doctor("BOBBERT", l5) ;
+		
+		d1.addInsurance(i1);
+		d1.addInsurance(i2);
+		
+		d2.addInsurance(i1);
+		d2.addInsurance(i2);
+		d2.addInsurance(i3);
+		
+		d3.addInsurance(i4);
+		d3.addInsurance(i5);
+		
+		d4.addInsurance(i3);
+		
+		d5.addInsurance(i1);
+		d5.addInsurance(i2);
+		d5.addInsurance(i3);
+		d5.addInsurance(i4);
+		d5.addInsurance(i5);
 	}
 	
 }
