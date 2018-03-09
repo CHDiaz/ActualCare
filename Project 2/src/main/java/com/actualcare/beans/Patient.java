@@ -99,7 +99,6 @@ public class Patient {
 		this.myAppointments = new HashSet<Appointments>();
 		this.medicalHistory = new HashSet<Diagnosis>();
 		this.medicalTests = new HashSet<MedicalRecords>();
-		this.p_id = p_id;
 		this.myAllgeries = myAllgeries;
 		this.myInsurance = myInsurance;
 		this.login = login;

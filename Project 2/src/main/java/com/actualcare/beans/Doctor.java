@@ -44,7 +44,7 @@ public class Doctor {
 	@JoinColumn(name="Login_id")
 	private LoginInfo login;
 	
-	@ManyToMany(cascade = {CascadeType.ALL})
+	@ManyToMany(cascade = {CascadeType.ALL}, fetch=FetchType.EAGER)
 	@JoinTable(
 			name = "Doctor_Insurance",
 			joinColumns = { @JoinColumn(name = "Doc_id") },
@@ -56,6 +56,14 @@ public class Doctor {
 	
 	/**No args constructor**/
 	public Doctor() { this.insuranceList  = new HashSet<Insurance>();}
+	
+	/**constructor without Doc_id field, Insurance field**/
+	public Doctor(String name, LoginInfo login) {
+		super();
+		this.name = name;
+		this.login = login;
+		this.insuranceList  = new HashSet<Insurance>();
+	}
 
 	/**constructor without Doc_id field**/
 	public Doctor(String name, LoginInfo login, Set<Insurance> insuranceList) {
@@ -93,5 +101,11 @@ public class Doctor {
 	public Set<Insurance> getInsuranceList() {
 		return insuranceList;
 	}
+	
+	public void addInsurance(Insurance i) {
+		insuranceList.add(i);
+	}
 
+	
+	
 }
