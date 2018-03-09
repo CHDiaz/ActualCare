@@ -33,10 +33,13 @@ public class Driver {
 	public static void main(String[] args) {
 		
 		// Patient login data insert test
-		Patient p = new Patient((new LoginInfo("harish@com","harish","patient")));
-		PatientDao pDao = new PatientDaoImpl();
 		
-		pDao.insert(p);
+		Patient p = new Patient(
+				(new Insurance("WELL_CARE")),
+				(new LoginInfo("harish@com","harish","patient")),
+				(new PersonalInfo("harish","chandramohan",20,"MALE",300,"Allen","NewYork","NY")));
+		PatientDaoImpl pp = new PatientDaoImpl();
+		pp.insert(p);
 		
 		// Doctor login data insert test
 		Doctor d = new Doctor(null, (new LoginInfo("christian@com","christian","doctor")));
@@ -108,6 +111,9 @@ public class Driver {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}*/
+		
+		
+		
 //		PatientDao pDao = new PatientDaoImpl();
 //
 //		

@@ -32,8 +32,8 @@ public class PatientDaoImpl implements PatientDao {
 
 		try {
 			tx = session.beginTransaction();
-	/*		session.save(p.getLogin());
-			session.save(p.getMedicalHistory());
+			session.save(p.getLogin());
+	/*		session.save(p.getMedicalHistory());
 			session.save(p.getMedicalTests());
 			session.save(p.getMyAllgeries());
 			session.save(p.getMyAppointments());
