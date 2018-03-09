@@ -34,13 +34,13 @@ public class Driver {
 		
 		// Patient login data insert test
 		
-		Patient p = new Patient(
-				(new Insurance("WELL_CARE")),
-				(new LoginInfo("harish@com","harish","patient")),
-				(new PersonalInfo("harish","chandramohan",20,"MALE",300,"Allen","NewYork","NY")));
-		PatientDaoImpl pp = new PatientDaoImpl();
-		pp.insert(p);
-		
+//		Patient p = new Patient(
+//				(new Insurance("WELL_CARE")),
+//				(new LoginInfo("harish@com","harish","patient")),
+//				(new PersonalInfo("harish","chandramohan",20,"MALE",300,"Allen","NewYork","NY")));
+//		PatientDaoImpl pp = new PatientDaoImpl();
+//		pp.insert(p);
+//		
 		// Doctor login data insert test
 		Doctor d = new Doctor(null, (new LoginInfo("christian@com","christian","doctor")));
 		DoctorDao.insertDoctor(d);
