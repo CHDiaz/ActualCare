@@ -51,6 +51,9 @@ public class Doctor {
 			inverseJoinColumns = { @JoinColumn(name = "i_id") })
 	private Set<Insurance> insuranceList;
 	
+	@OneToMany(mappedBy = "PCP", fetch=FetchType.EAGER)
+	private Set<Patient> myPatients;
+	
 	@OneToMany(mappedBy = "doctorAppointments", fetch=FetchType.EAGER)
 	private Set<Appointments> myAppointments;
 	
@@ -63,6 +66,7 @@ public class Doctor {
 		this.name = name;
 		this.login = login;
 		this.insuranceList  = new HashSet<Insurance>();
+		this.myPatients  = new HashSet<Patient>();
 	}
 
 	/**constructor without Doc_id field**/
@@ -74,12 +78,15 @@ public class Doctor {
 	}
 
 	/**All agrs constructor**/
-	public Doctor(Integer doc_id, String name, LoginInfo login, Set<Insurance> insuranceList) {
+	public Doctor(Integer doc_id, String name, LoginInfo login, Set<Insurance> insuranceList, Set<Patient> myPatients,
+			Set<Appointments> myAppointments) {
 		super();
 		Doc_id = doc_id;
 		this.name = name;
 		this.login = login;
 		this.insuranceList = insuranceList;
+		this.myPatients = myPatients;
+		this.myAppointments = myAppointments;
 	}
 
 	/**Sets the value of D_id for this Doctor Object**/
@@ -104,6 +111,10 @@ public class Doctor {
 	
 	public void addInsurance(Insurance i) {
 		insuranceList.add(i);
+	}
+	
+	public void addPatient(Patient p) {
+		myPatients.add(p);
 	}
 
 	
