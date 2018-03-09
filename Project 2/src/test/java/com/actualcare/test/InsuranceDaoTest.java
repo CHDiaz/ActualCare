@@ -23,10 +23,18 @@ public class InsuranceDaoTest {
 		InsuranceDao iDao = new InsuranceDaoImpl();
 		int insurance_id = iDao.insert(i);
 		Assert.assertEquals((iDao.returnInsurance(insurance_id)).getI_id(), i.getI_id());
-		iDao.delete(i);
 	}
 	
 	@Test(priority = 3)
+	public void returnTestByName() {
+		Insurance i = new Insurance("test");
+		InsuranceDao iDao = new InsuranceDaoImpl();
+		int insurance_id = iDao.insert(i);
+		Assert.assertEquals((iDao.returnInsurance(insurance_id)).getI_name(), i.getI_name());
+	}
+	
+	
+	@Test(priority = 4)
 	public void deleteTest() {
 		Insurance i = new Insurance("test");
 		InsuranceDao iDao = new InsuranceDaoImpl();

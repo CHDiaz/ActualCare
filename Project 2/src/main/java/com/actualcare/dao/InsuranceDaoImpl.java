@@ -153,5 +153,28 @@ public class InsuranceDaoImpl implements InsuranceDao {
 		}
 		return allinsuranceList;
 	}
+
+	public Insurance returnInsuranceByName(String i_name) {
+		logger.info("InsuranceDaoImpl returnInsuranceByName method called.");
+		Insurance insurance = null;
+		Session session = HibernateUtil.getSession();
+		Transaction tx = null;
+
+		try {
+			tx = session.beginTransaction();
+			insurance = (Insurance) session.createCriteria(Insurance.class).add(Restrictions.idEq(i_name)).uniqueResult();
+
+		} catch (HibernateException e) {
+			if (tx != null) {
+				tx.rollback();
+				logger.info("Insurance object/record NOT found");
+			}
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		logger.info("Insurance object returned successfully.");
+		return insurance;
+	}
 }
 

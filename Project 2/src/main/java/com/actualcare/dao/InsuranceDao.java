@@ -33,5 +33,9 @@ public interface InsuranceDao {
   
 	/** Method that returns all Insurance records from the Insurance table. **/
 	public List<Insurance> returnAllInsurance();
+	
+	public Insurance returnInsuranceByName(String i_name);
+
+	
 
 }
