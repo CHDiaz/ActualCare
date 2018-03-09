@@ -156,6 +156,85 @@ public class PersonalInfo {
 				+ ", sex=" + sex + ", door_no=" + door_no + ", street=" + street + ", city=" + city + ", state=" + state
 				+ "]";
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((age == null) ? 0 : age.hashCode());
+		result = prime * result + ((city == null) ? 0 : city.hashCode());
+		result = prime * result + ((door_no == null) ? 0 : door_no.hashCode());
+		result = prime * result + ((f_name == null) ? 0 : f_name.hashCode());
+		result = prime * result + ((l_name == null) ? 0 : l_name.hashCode());
+		result = prime * result + ((patient == null) ? 0 : patient.hashCode());
+		result = prime * result + ((personal_id == null) ? 0 : personal_id.hashCode());
+		result = prime * result + ((sex == null) ? 0 : sex.hashCode());
+		result = prime * result + ((state == null) ? 0 : state.hashCode());
+		result = prime * result + ((street == null) ? 0 : street.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PersonalInfo other = (PersonalInfo) obj;
+		if (age == null) {
+			if (other.age != null)
+				return false;
+		} else if (!age.equals(other.age))
+			return false;
+		if (city == null) {
+			if (other.city != null)
+				return false;
+		} else if (!city.equals(other.city))
+			return false;
+		if (door_no == null) {
+			if (other.door_no != null)
+				return false;
+		} else if (!door_no.equals(other.door_no))
+			return false;
+		if (f_name == null) {
+			if (other.f_name != null)
+				return false;
+		} else if (!f_name.equals(other.f_name))
+			return false;
+		if (l_name == null) {
+			if (other.l_name != null)
+				return false;
+		} else if (!l_name.equals(other.l_name))
+			return false;
+		if (patient == null) {
+			if (other.patient != null)
+				return false;
+		} else if (!patient.equals(other.patient))
+			return false;
+		if (personal_id == null) {
+			if (other.personal_id != null)
+				return false;
+		} else if (!personal_id.equals(other.personal_id))
+			return false;
+		if (sex == null) {
+			if (other.sex != null)
+				return false;
+		} else if (!sex.equals(other.sex))
+			return false;
+		if (state == null) {
+			if (other.state != null)
+				return false;
+		} else if (!state.equals(other.state))
+			return false;
+		if (street == null) {
+			if (other.street != null)
+				return false;
+		} else if (!street.equals(other.street))
+			return false;
+		return true;
+	}
 	
 	
 }

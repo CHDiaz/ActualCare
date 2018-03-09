@@ -52,4 +52,42 @@ public class Treatment {
 	public Integer getT_id() {return t_id;}
 	/**Returns the treatmentInfo for this Treatment object instance**/
 	public String getTreatmentInfo() {return treatmentInfo;}
+
+	@Override
+	public String toString() {
+		return "Treatment [t_id=" + t_id + ", treatmentInfo=" + treatmentInfo + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((t_id == null) ? 0 : t_id.hashCode());
+		result = prime * result + ((treatmentInfo == null) ? 0 : treatmentInfo.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Treatment other = (Treatment) obj;
+		if (t_id == null) {
+			if (other.t_id != null)
+				return false;
+		} else if (!t_id.equals(other.t_id))
+			return false;
+		if (treatmentInfo == null) {
+			if (other.treatmentInfo != null)
+				return false;
+		} else if (!treatmentInfo.equals(other.treatmentInfo))
+			return false;
+		return true;
+	}
+	
+	
 }

@@ -68,6 +68,42 @@ public class Admin {
 	public void setLogin(LoginInfo login) {
 		this.login = login;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((A_Id == null) ? 0 : A_Id.hashCode());
+		result = prime * result + ((login == null) ? 0 : login.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Admin other = (Admin) obj;
+		if (A_Id == null) {
+			if (other.A_Id != null)
+				return false;
+		} else if (!A_Id.equals(other.A_Id))
+			return false;
+		if (login == null) {
+			if (other.login != null)
+				return false;
+		} else if (!login.equals(other.login))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Admin [A_Id=" + A_Id + ", login=" + login + "]";
+	}
 	
 	
 }
