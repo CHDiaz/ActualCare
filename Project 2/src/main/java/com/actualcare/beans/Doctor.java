@@ -44,7 +44,7 @@ public class Doctor {
 	@JoinColumn(name="Login_id")
 	private LoginInfo login;
 	
-	@ManyToMany(cascade = {CascadeType.ALL})
+	@ManyToMany(cascade = {CascadeType.ALL}, fetch=FetchType.EAGER)
 	@JoinTable(
 			name = "Doctor_Insurance",
 			joinColumns = { @JoinColumn(name = "Doc_id") },
@@ -106,4 +106,6 @@ public class Doctor {
 		insuranceList.add(i);
 	}
 
+	
+	
 }

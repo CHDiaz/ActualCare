@@ -37,7 +37,7 @@ public class Insurance {
 	@OneToMany(mappedBy = "myInsurance", fetch=FetchType.EAGER)
 	private Set<Patient> customers;
 	
-	@ManyToMany(mappedBy = "insuranceList")
+	@ManyToMany(mappedBy = "insuranceList", fetch = FetchType.EAGER)
 	private Set<Doctor> doctorList;
 	
 	/**No args constructor that intializes customers and doctorList to a new HashSet**/
