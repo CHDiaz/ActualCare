@@ -33,8 +33,10 @@ public class Driver {
 	public static void main(String[] args) {
 		
 		// Patient login data insert test
-		//Patient p = new Patient((new LoginInfo("harish@com","harish","patient")));
-		//PatientDao.insertPatient(p);
+		Patient p = new Patient((new LoginInfo("harish@com","harish","patient")));
+		PatientDao pDao = new PatientDaoImpl();
+		
+		pDao.insert(p);
 		
 		// Doctor login data insert test
 		Doctor d = new Doctor(null, (new LoginInfo("christian@com","christian","doctor")));
