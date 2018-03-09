@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -24,12 +25,9 @@ public class Sympton {
 	@Column
 	private String s_name;
 
-	
-	
-	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
-		@JoinColumn(name="P_Id")
-		private Patient patient;
-
+	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="Patient_Sympton")
+	private Patient patientSympton;
 
 
 	public Integer getSympton_id() {
@@ -55,20 +53,6 @@ public class Sympton {
 	}
 
 
-	
-	
-	public Patient getPatient() {
-		return patient;
-	}
-
-
-
-	public void setPatient(Patient patient) {
-		this.patient = patient;
-	}
-
-
-
 	public Sympton(Integer sympton_id, String s_name) {
 		super();
 		this.sympton_id = sympton_id;
@@ -88,7 +72,7 @@ public class Sympton {
 
 	@Override
 	public String toString() {
-		return "Sympton [sympton_id=" + sympton_id + ", s_name=" + s_name + ", patient=" + patient + "]";
+		return "Sympton [sympton_id=" + sympton_id + ", s_name=" + s_name + ", patient=" + "]";
 	}
 	
 	

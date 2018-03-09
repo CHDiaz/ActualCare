@@ -24,7 +24,7 @@ public class Admin {
 	
 	//Admin Id
 	@Id
-	@Column
+	@Column(name = "admin_id")
 	@SequenceGenerator(sequenceName="ADMIN_SEQ", name="ADMIN_SEQ")
 	@GeneratedValue(generator="ADMIN_SEQ", strategy=GenerationType.SEQUENCE)
 	private Integer A_Id;
