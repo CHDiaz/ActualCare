@@ -12,7 +12,8 @@ public class InsuranceDaoTest {
 	public void insertTest() {
 		Insurance i = new Insurance();
 		InsuranceDao iDao = new InsuranceDaoImpl();
-		Assert.assertEquals(iDao.insert(i), 50);
+		int insurance_id = iDao.insert(i);
+		Assert.assertEquals((iDao.returnInsurance(insurance_id)).getI_id(), i.getI_id());
 		iDao.delete(i);
 	}
 

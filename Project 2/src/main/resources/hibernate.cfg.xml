@@ -27,24 +27,30 @@
 			create
 		</property>
 		
-		<!-- Mapping for treatments -->
-		<mapping class="com.actualcare.beans.Insurance"/>
-		<!-- Mapping for treatments -->
-		<mapping class="com.actualcare.beans.Treatment"/>
-		<!-- Mapping for medical records -->
-		<mapping class="com.actualcare.beans.MedicalRecords"/>
-		<!-- Mapping for loginInfo -->
-		<mapping class="com.actualcare.beans.LoginInfo"/>
-		<!-- Mapping for Doctor -->
-		<mapping class="com.actualcare.beans.Doctor"/>
 		<!-- Mapping for Admin -->
 		<mapping class="com.actualcare.beans.Admin"/>
+		<!-- Mapping for Allergy -->
+		<mapping class="com.actualcare.beans.Allergy"/>
+		<!-- Mapping for Appointments -->
+		<mapping class="com.actualcare.beans.Appointments"/>
+		<!-- Mapping for Diagnosis -->
+		<mapping class="com.actualcare.beans.Diagnosis"/>
+		<!-- Mapping for Doctor -->
+		<mapping class="com.actualcare.beans.Doctor"/>
+		<!-- Mapping for Insurance -->
+		<mapping class="com.actualcare.beans.Insurance"/>
+		<!-- Mapping for LoginInfo -->
+		<mapping class="com.actualcare.beans.LoginInfo"/>
+		<!-- Mapping for Medical Records -->
+		<mapping class="com.actualcare.beans.MedicalRecords"/>
 		<!-- Mapping for Patient -->
 		<mapping class="com.actualcare.beans.Patient"/>
-		<!-- Mapping for  Insurance -->
-		<mapping class="com.actualcare.beans.Insurance"/>
-		<!-- Mapping for  Insurance -->
+		<!-- Mapping for  PersonalInfo -->
 		<mapping class="com.actualcare.beans.PersonalInfo"/>
+		<!-- Mapping for  sympton -->
+		<mapping class="com.actualcare.beans.Sympton"/>
+		<!-- Mapping for treatments -->
+		<mapping class="com.actualcare.beans.Treatment"/>
 		
 	</session-factory>
 </hibernate-configuration>

@@ -1,5 +1,6 @@
 package com.actualcare.beans;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -7,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -20,9 +22,9 @@ public class Diagnosis {
 	@GeneratedValue(generator="D_SEQ", strategy=GenerationType.SEQUENCE)
 	private Integer diagnosis_id;
 	
-	@OneToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="P_Id")
-	private Patient patient;
+	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="Patient_Diagonsis")
+	private Patient patientDiagonsis;
 	
 	@Column
 	private String d_name;
@@ -45,12 +47,11 @@ public class Diagnosis {
 
 	
 	
-	public Patient getPatient() {
-		return patient;
-	}
 
-	public void setPatient(Patient patient) {
-		this.patient = patient;
+
+
+	public void setPatientDiagonsis(Patient patientDiagonsis) {
+		this.patientDiagonsis = patientDiagonsis;
 	}
 
 	public Diagnosis(Integer diagnosis_id, String d_name) {

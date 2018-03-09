@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -49,6 +50,9 @@ public class Doctor {
 			joinColumns = { @JoinColumn(name = "Doc_id") },
 			inverseJoinColumns = { @JoinColumn(name = "i_id") })
 	private Set<Insurance> insuranceList;
+	
+	@OneToMany(mappedBy = "doctorAppointments", fetch=FetchType.EAGER)
+	private Set<Appointments> myAppointments;
 	
 	/**No args constructor**/
 	public Doctor() { this.insuranceList  = new HashSet<Insurance>();}
