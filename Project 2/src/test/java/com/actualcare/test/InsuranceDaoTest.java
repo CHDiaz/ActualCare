@@ -10,9 +10,11 @@ import com.actualcare.dao.InsuranceDaoImpl;
 public class InsuranceDaoTest {
 	@Test(priority = 1)
 	public void insertTest() {
-		Insurance i = new Insurance("test");
+		Insurance i = new Insurance();
 		InsuranceDao iDao = new InsuranceDaoImpl();
-		Assert.assertEquals(iDao.insert(i), 50);
+		int insurance_id = iDao.insert(i);
+		Assert.assertEquals((iDao.returnInsurance(insurance_id)).getI_id(), i.getI_id());
+		iDao.delete(i);
 	}
 
 	@Test(priority = 2)
@@ -21,9 +23,10 @@ public class InsuranceDaoTest {
 		InsuranceDao iDao = new InsuranceDaoImpl();
 		int insurance_id = iDao.insert(i);
 		Assert.assertEquals((iDao.returnInsurance(insurance_id)).getI_id(), i.getI_id());
+		iDao.delete(i);
 	}
 	
-	@Test(priority = 5)
+	@Test(priority = 3)
 	public void deleteTest() {
 		Insurance i = new Insurance("test");
 		InsuranceDao iDao = new InsuranceDaoImpl();

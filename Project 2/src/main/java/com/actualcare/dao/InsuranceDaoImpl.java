@@ -77,7 +77,7 @@ public class InsuranceDaoImpl implements InsuranceDao {
 	 * Method that returns an Insurance record from the Insurance table, based on
 	 * the specificed Insurance i_id.
 	 **/
-	public Insurance returnInsurance(int insurance_id) {
+	public Insurance returnInsurance(int i_id) {
 		logger.info("InsuranceDaoImpl returnInsurance method called.");
 		Insurance insurance = null;
 		Session session = HibernateUtil.getSession();
@@ -85,7 +85,7 @@ public class InsuranceDaoImpl implements InsuranceDao {
 
 		try {
 			tx = session.beginTransaction();
-			insurance = (Insurance) session.createCriteria(Insurance.class).add(Restrictions.idEq(insurance_id)).uniqueResult();
+			insurance = (Insurance) session.createCriteria(Insurance.class).add(Restrictions.idEq(i_id)).uniqueResult();
 
 		} catch (HibernateException e) {
 			if (tx != null) {
@@ -153,6 +153,5 @@ public class InsuranceDaoImpl implements InsuranceDao {
 		}
 		return allinsuranceList;
 	}
-
-
 }
+

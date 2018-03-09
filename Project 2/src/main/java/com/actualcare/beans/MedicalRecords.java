@@ -1,10 +1,14 @@
 package com.actualcare.beans;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -24,6 +28,10 @@ public class MedicalRecords {
 	private byte[] medicalRecords;   // variable/column for attachments for MedicalRecords object instance
 	@Column
 	private String fileName;		// variable/column for attachments' names for MedicalRecords object instance
+	
+	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="Patient_MedicalRecords")
+	private Patient patientMedicalRecords;
 	
 	/**No args constructor for creating empty objects**/
 	public MedicalRecords() {}

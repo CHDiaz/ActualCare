@@ -29,8 +29,8 @@ public class PersonalInfoDaoTest {
 	public void returnDocTest() {
 		PersonalInfo pi = new PersonalInfo();
 		PersonalInfoDao piDao = new PersonalInfoDaoImpl();
-		int personal_id = piDao.insert(pi);
-		Assert.assertEquals((piDao.returnPersonalInfo(personal_id)).getPatient(), pi.getPatient().getP_Id());
+		Integer personal_id = piDao.insert(pi);
+		Assert.assertEquals(piDao.returnPersonalInfo(personal_id).getPersonal_id(), personal_id);
 	}
 	
 	@Test(priority = 4)

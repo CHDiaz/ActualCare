@@ -7,7 +7,7 @@ import com.actualcare.beans.Diagnosis;
 import com.actualcare.dao.DiagnosisDao;
 import com.actualcare.dao.DiagnosisDaoImpl;
 
-public class DaignosisDaoTest {
+public class DiagnosisDaoTest {
 	
 	@Test(priority = 1)
 	public void insertTest() {
@@ -28,8 +28,8 @@ public class DaignosisDaoTest {
 	public void returnDocTest() {
 		Diagnosis d = new Diagnosis();
 		DiagnosisDao dDao = new DiagnosisDaoImpl();
-		int diagnosis_id = dDao.insert(d);
-		Assert.assertEquals((dDao.returnDiagnosis(diagnosis_id)).getPatient(), d.getPatient().getP_Id());
+		Integer diagnosis_id = dDao.insert(d);
+		Assert.assertEquals(dDao.returnDiagnosis(diagnosis_id).getDiagnosis_id(), diagnosis_id);
 	}
 	
 	@Test(priority = 4)
