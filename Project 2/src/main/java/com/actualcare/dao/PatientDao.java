@@ -25,6 +25,8 @@ public interface PatientDao {
 	 * provided Patient object.
 	 **/
 	public int insertRegister(Patient p);
+	public void updateAllergy(Patient p, String allergy);
+	public void updateSympton(Patient p, String sympton);
 	/**
 	 * Method for deleting a record from the Patients table, based on the
 	 * provided Patient object.
@@ -35,6 +37,7 @@ public interface PatientDao {
 	 * based on the provided Patient id.
 	 **/
 	public Patient returnPatient(int p_id);
+	public Patient returnPatientByLoginId(int l_id);
 	/**
 	 * Method for returning all records from the Patients table as a list of Patients.
 	 **/
