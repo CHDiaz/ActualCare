@@ -31,16 +31,16 @@ public class PatientRest {
 	@Produces(MediaType.APPLICATION_JSON)
 	public void insertRegistered(Patient p){
 		
-		String i_name = p.getMyInsurance().getI_name();     // Extract the insurance name from the patient object
+		String i_name = p.getMyInsurance();     // Extract the insurance name from the patient object
 		Insurance i = iDao.returnInsuranceByName(i_name);	// Search for the corresponding Insurance record in the Insurance table
 		i.addPatient(p); 									// Add this new patient to the this Insurance object's set of patients
 		
-		String d_name = p.getPCP().getName();				// Extract the Doctor name from the patient object
+		String d_name = p.getPCP();				// Extract the Doctor name from the patient object
 		Doctor d = DoctorDao.returnDoctorByName(d_name);	// Search for the corresponding Doctor record in the Doctor table
 		d.addPatient(p); 									// Add this new patient to this Doctor object's set of patients
 		
-		p.setPCP(d);										// Set the new value for the Patient p's PCP.
-		p.setMyInsurance(i);								// Set the new value for Patient p's myInsurance.
+		p.setPCP(d.getName());										// Set the new value for the Patient p's PCP.
+		p.setMyInsurance(i.getI_name());								// Set the new value for Patient p's myInsurance.
 		pDao.insertRegister(p);								// Insert this new patient into the table.
 		iDao.updatePatientList(i);							// Update the Insurance object to include this new patient
 		DoctorDao.updatePatientList(d);						// Update the Doctor object to include this new patient
