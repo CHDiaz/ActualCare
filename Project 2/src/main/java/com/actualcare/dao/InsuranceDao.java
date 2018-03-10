@@ -35,6 +35,8 @@ public interface InsuranceDao {
 	public List<Insurance> returnAllInsurance();
 	
 	public Insurance returnInsuranceByName(String i_name);
+	
+	public void updatePatientList (Insurance i);
 
 	
 

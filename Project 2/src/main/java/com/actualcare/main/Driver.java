@@ -1,31 +1,17 @@
 package com.actualcare.main;
 
-import com.actualcare.beans.Admin;
+import java.util.Set;
+
 import com.actualcare.beans.Doctor;
 import com.actualcare.beans.Insurance;
 import com.actualcare.beans.LoginInfo;
 import com.actualcare.beans.Patient;
 import com.actualcare.beans.PersonalInfo;
-import com.actualcare.dao.AdminDao;
 import com.actualcare.dao.DoctorDao;
 import com.actualcare.dao.InsuranceDao;
 import com.actualcare.dao.InsuranceDaoImpl;
 import com.actualcare.dao.PatientDao;
 import com.actualcare.dao.PatientDaoImpl;
-
-import com.actualcare.dao.LoginInfoDao;
-import com.actualcare.dao.PatientDao;
-import com.actualcare.dao.TreatmentDao;
-import com.actualcare.dao.TreatmentDaoImpl;
-
-import java.io.File;
-import java.io.IOException;
-
-import org.apache.commons.io.FileUtils;
-
-import com.actualcare.beans.MedicalRecords;
-import com.actualcare.dao.MedicalRecordsDao;
-import com.actualcare.dao.MedicalRecordsDaoImpl;
 
 
 public class Driver {
@@ -34,20 +20,20 @@ public class Driver {
 		
 		// Patient login data insert test
 		
-		Patient p = new Patient(
+/*		Patient p = new Patient(
 				(new Insurance("WELL_CARE")),
 				(new LoginInfo("harish@com","harish","patient")),
 				(new PersonalInfo("harish","chandramohan",20,"MALE",300,"Allen","NewYork","NY")));
 		PatientDaoImpl pp = new PatientDaoImpl();
-		pp.insert(p);
+		pp.insert(p);*/
 //		
 		// Doctor login data insert test
-		Doctor d = new Doctor(null, (new LoginInfo("christian@com","christian","doctor")));
-		DoctorDao.insertDoctor(d);
+/*		Doctor d = new Doctor(null, (new LoginInfo("christian@com","christian","doctor")));
+		DoctorDao.insertDoctor(d);*/
 		
 		// Admin login data insert test
-		Admin a = new Admin((new LoginInfo("steven@com","steven","admin")));
-		AdminDao.insertAdmin(a);
+/*		Admin a = new Admin((new LoginInfo("steven@com","steven","admin")));
+		AdminDao.insertAdmin(a);*/
 		
 //		// Treatement data insert test
 //		Treatment t = new Treatment("test");
@@ -137,7 +123,7 @@ public class Driver {
 //		pDao.delete(p);
 		
 		//Insurance(String i_name, Set<Doctor> doctorList)
-		Insurance i1 = new Insurance("UNITED_HEALTH");
+	/*	Insurance i1 = new Insurance("UNITED_HEALTH");
 		Insurance i2 = new Insurance("WELL_CARE");
 		Insurance i3 = new Insurance("WELL_POINT");
 		Insurance i4 = new Insurance("OSCAR");
@@ -196,13 +182,52 @@ public class Driver {
 		iDao.insert(i4);
 		iDao.insert(i5);
 		System.out.println("Stuff inserted");
-		
+		*/
 /*		InsuranceDao iDao = new InsuranceDaoImpl();
 		//Insurance i = new Insurance("WTF");
 		//iDao.insert(i);
 		Insurance i2 = iDao.returnInsuranceByName("WELL_CARE");
 		//iDao.delete(i);
 		System.out.println(i2.getI_name());*/
+		
+		
+/*		PatientDao pDao = new PatientDaoImpl();
+		InsuranceDao iDao = new InsuranceDaoImpl();
+		
+		Insurance i = iDao.returnInsuranceByName("WELL_CARE");
+		Set<Doctor> dList = i.getDoctorList();
+		Doctor pcp = dList.iterator().next();
+		LoginInfo l = new LoginInfo("testPatient@dogmail.com","test","patient");
+		PersonalInfo per = new PersonalInfo("testfname", "testlname", 30, "male", 1,
+				"101-01 test street", "testcity", "TC");
+		
+		Patient p = new Patient(i, pcp, l, per);
+		
+		int p_id = pDao.insertRegister(p);
+		System.out.println(p_id);
+		pDao.delete(p);
+		System.out.println("its gone");
+		*/
+		InsuranceDao iDao = new InsuranceDaoImpl();
+		PatientDao pDao = new PatientDaoImpl();
+		Insurance i = iDao.returnInsuranceByName("NO_INSURANCE");
+		
+		System.out.println("=======GOT INSURANCE==========");
+		
+		i.addPatient(pDao.returnPatient(2050));
+		
+		System.out.println("=======ADDED PATIENT==========");
+		
+		iDao.updatePatientList(i);
+		
+		System.out.println("=======UPDATED PATIENT==========");
+		
+		Insurance i2 = iDao.returnInsuranceByName("NO_INSURANCE");
+		
+		System.out.println("=======GOT INSURANCE AGAIN==========");
+		
+		System.out.println(i2.getCustomers().iterator().next().getP_id());
+		System.exit(0);
 		
 	}
 	

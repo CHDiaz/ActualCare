@@ -45,7 +45,11 @@ public class Doctor {
 	private LoginInfo login;
 	
 	
-	@OneToMany(mappedBy = "PCP", fetch=FetchType.EAGER)
+	@OneToMany(fetch=FetchType.EAGER)
+	@JoinTable(
+			name = "Patient_Doctor",
+			joinColumns = { @JoinColumn(name = "p_id") },
+			inverseJoinColumns = { @JoinColumn(name = "doc_id") })
 	private Set<Patient> myPatients;
 	
 	@OneToMany(mappedBy = "doctorAppointments", fetch=FetchType.EAGER)
@@ -53,6 +57,14 @@ public class Doctor {
 	
 	/**No args constructor**/
 	public Doctor() { }
+	
+	/**constructor without Doc_id field, login field, Insurance field**/
+	public Doctor(String name) {
+		super();
+		this.name = name;
+		this.myPatients  = new HashSet<Patient>();
+	}
+
 	
 	/**constructor without Doc_id field, Insurance field**/
 	public Doctor(String name, LoginInfo login) {

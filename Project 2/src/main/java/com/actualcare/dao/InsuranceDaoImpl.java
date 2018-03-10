@@ -176,5 +176,30 @@ public class InsuranceDaoImpl implements InsuranceDao {
 		logger.info("Insurance object returned successfully.");
 		return insurance;
 	}
+
+	@Override
+	public void updatePatientList(Insurance i) {
+		logger.info("InsuranceDaoImpl updatePatient method called.");
+
+		Session session = HibernateUtil.getSession();
+		Transaction tx = null;
+
+		try {
+			tx = session.beginTransaction();
+			session.update(i);;
+			tx.commit();
+			logger.info("Insurance object updated successfully");
+
+		} catch (HibernateException e) {
+			if (tx != null) {
+				tx.rollback();
+				logger.error("Insurance object was NOT updated!");
+			}
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		
+	}
 }
 
