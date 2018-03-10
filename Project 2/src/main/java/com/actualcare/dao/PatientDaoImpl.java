@@ -32,8 +32,8 @@ public class PatientDaoImpl implements PatientDao {
 
 		try {
 			tx = session.beginTransaction();
-	/*		session.save(p.getLogin());
-			session.save(p.getMedicalHistory());
+		//	session.save(p.getLogin());
+	/*		session.save(p.getMedicalHistory());
 			session.save(p.getMedicalTests());
 			session.save(p.getMyAllgeries());
 			session.save(p.getMyAppointments());
@@ -42,6 +42,7 @@ public class PatientDaoImpl implements PatientDao {
 			session.save(p.getMyPersonalInfo());
 			session.save(p.getMySymptons());
 			session.save(p.getMyMedications());*/
+			//session.save(p.getLogin());
 			patient_id = (int) session.save(p);
 			tx.commit();
 			logger.info("Patient object inserted successfully");
