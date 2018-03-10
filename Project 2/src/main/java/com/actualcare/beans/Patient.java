@@ -47,11 +47,9 @@ public class Patient {
 	private Set<Diagnosis> medicalHistory;
 	
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="Patient_Insurance")
 	private Insurance myInsurance;
 	
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="Patient_Doctor")
 	private Doctor PCP;
 	
 	@OneToOne(fetch=FetchType.EAGER)
@@ -87,12 +85,13 @@ public class Patient {
 		this.medicalTests = new HashSet<MedicalRecords>();
 		this.login = login;}
 
-	/**Set less all args constructor**/
-	public Patient(Insurance myInsurance, LoginInfo login,PersonalInfo myPersonalInfo) {
+	/**Register args constructor**/
+	public Patient(Insurance myInsurance, Doctor PCP, LoginInfo login,PersonalInfo myPersonalInfo) {
 		this.myAppointments = new HashSet<Appointments>();
 		this.medicalHistory = new HashSet<Diagnosis>();
 		this.medicalTests = new HashSet<MedicalRecords>();
 		this.myInsurance = myInsurance;
+		this.PCP = PCP;
 		this.login = login;
 		this.myPersonalInfo = myPersonalInfo;
 	}
@@ -163,7 +162,9 @@ public class Patient {
 	public void setMySymptons(Sympton mySymptons) {this.mySymptons = mySymptons;}
 	/**Sets the value of myMedications**/
 	public void setMyMedications(Treatment myMedications) {this.myMedications = myMedications;}
-
+	/**Sets the value of PCP**/
+	public void setPCP(Doctor pCP) {PCP = pCP;}
+	
 	/**Returns the value of p_id**/
 	public Integer getP_id() {return p_id;}
 	/**Returns the value of myAllgeries**/
@@ -184,6 +185,8 @@ public class Patient {
 	public Sympton getMySymptons() {return mySymptons;}
 	/**Returns the value of mymedications**/
 	public Treatment getMyMedications() {return myMedications;}
+	/**Returns the value of PCP**/
+	public Doctor getPCP() {return PCP;}
 
 	@Override
 	public String toString() {

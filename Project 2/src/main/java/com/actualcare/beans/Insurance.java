@@ -37,7 +37,11 @@ public class Insurance {
 	@Column
 	private String i_name;
 
-	@OneToMany(mappedBy = "myInsurance", fetch=FetchType.EAGER)
+	@OneToMany(fetch=FetchType.EAGER)
+	@JoinTable(
+			name = "Patient_Insurance",
+			joinColumns = { @JoinColumn(name = "p_id") },
+			inverseJoinColumns = { @JoinColumn(name = "i_id") })
 	private Set<Patient> customers;
 	
 	@ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)

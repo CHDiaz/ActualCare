@@ -17,7 +17,7 @@ import com.actualcare.util.HibernateUtil;
  *
  */
 public class PatientDaoImpl implements PatientDao {
-	private static Logger logger = Logger.getLogger(AllergyDaoImpl.class);
+	private static Logger logger = Logger.getLogger(PatientDaoImpl.class);
 
 	/**
 	 * Method for inserting a record into the Patients table, based on the
@@ -73,7 +73,6 @@ public class PatientDaoImpl implements PatientDao {
 		try {
 			tx = session.beginTransaction();
 			session.save(p.getLogin());
-			session.save(p.getMyInsurance());
 			session.save(p.getMyPersonalInfo());
 
 			patient_id = (int) session.save(p);
