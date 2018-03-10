@@ -27,9 +27,10 @@ public class PatientRest {
 	
 	
 	@POST
-	@Path("/register")//http://localhost:8085/ActualCare/rest/register/post
+	@Path("/post")//http://localhost:8085/ActualCare/rest/patient/post
 	@Produces(MediaType.APPLICATION_JSON)
 	public void insertRegistered(Patient p){
+		System.out.println("In POST");
 		String i_name = p.getMyInsurance().getI_name();     // Extract the insurance name from the patient object
 		Insurance i = iDao.returnInsuranceByName(i_name);	// Search for the corresponding Insurance record in the Insurance table
 		i.addPatient(p); 									// Add this new patient to the this Insurance object's set of patients
