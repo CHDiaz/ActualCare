@@ -2,6 +2,7 @@ package com.revature.rest;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -22,12 +23,10 @@ public class InsuranceRest {
 	@GET
 	@Path("/get/{iname}")//http://localhost:8085/ActualCare/rest/insurance/get/WELL_CARE
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Doctor> returnDoctorsByInsurance(@PathParam("iname")String i_name){
+	public Set<Doctor> returnDoctorsByInsurance(@PathParam("iname")String i_name){
+		
 		Insurance i = iDao.returnInsuranceByName(i_name);
-		System.out.println(i);
-		List<Doctor> dlist = new ArrayList<Doctor>();
-		dlist.addAll(i.getDoctorList());
-		return dlist;
+		return i.getDoctorList();
 	}
 
 }

@@ -40,7 +40,7 @@ public class Insurance {
 	@OneToMany(mappedBy = "myInsurance", fetch=FetchType.EAGER)
 	private Set<Patient> customers;
 	
-	@ManyToMany(cascade = {CascadeType.ALL}, fetch=FetchType.EAGER)
+	@ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
 	@JoinTable(
 			name = "Doctor_Insurance",
 			joinColumns = { @JoinColumn(name = "Doc_id") },
@@ -105,5 +105,53 @@ public class Insurance {
 	public void addDoctor(Doctor d) {
 		doctorList.add(d);
 	}
+	
+/*	@Override
+	public String toString() {
+		return "Insurance [insurance_id=" + i_id + ", i_name=" + i_name + "]";
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((customers == null) ? 0 : customers.hashCode());
+		result = prime * result + ((doctorList == null) ? 0 : doctorList.hashCode());
+		result = prime * result + ((i_id == null) ? 0 : i_id.hashCode());
+		result = prime * result + ((i_name == null) ? 0 : i_name.hashCode());
+		return result;
+	}*/
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Insurance other = (Insurance) obj;
+		if (customers == null) {
+			if (other.customers != null)
+				return false;
+		} else if (!customers.equals(other.customers))
+			return false;
+		if (doctorList == null) {
+			if (other.doctorList != null)
+				return false;
+		} else if (!doctorList.equals(other.doctorList))
+			return false;
+		if (i_id == null) {
+			if (other.i_id != null)
+				return false;
+		} else if (!i_id.equals(other.i_id))
+			return false;
+		if (i_name == null) {
+			if (other.i_name != null)
+				return false;
+		} else if (!i_name.equals(other.i_name))
+			return false;
+		return true;
+	}
+	
+	
 	
 }
