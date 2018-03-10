@@ -46,10 +46,8 @@ public class Patient {
 	@OneToMany(mappedBy = "patientDiagonsis", fetch=FetchType.EAGER)
 	private Set<Diagnosis> medicalHistory;
 	
-	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private String myInsurance;
-	
-	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+
 	private String PCP;
 	
 	@OneToOne(fetch=FetchType.EAGER)
