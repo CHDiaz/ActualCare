@@ -64,48 +64,5 @@ public class Allergy {
 	public Allergy() {
 		super();
 	}
-
-
-
-	@Override
-	public String toString() {
-		return "Allergy [a_id=" + a_id + ", a_name=" + a_name + "]";
-	}
-
-
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((a_id == null) ? 0 : a_id.hashCode());
-		result = prime * result + ((a_name == null) ? 0 : a_name.hashCode());
-		return result;
-	}
-
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Allergy other = (Allergy) obj;
-		if (a_id == null) {
-			if (other.a_id != null)
-				return false;
-		} else if (!a_id.equals(other.a_id))
-			return false;
-		if (a_name == null) {
-			if (other.a_name != null)
-				return false;
-		} else if (!a_name.equals(other.a_name))
-			return false;
-		return true;
-	}
-	
 	
 }

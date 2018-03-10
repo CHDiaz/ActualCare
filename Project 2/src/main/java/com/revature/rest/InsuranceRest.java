@@ -22,16 +22,12 @@ public class InsuranceRest {
 	@GET
 	@Path("/get/{iname}")//http://localhost:8085/ActualCare/rest/insurance/get/WELL_CARE
 	@Produces(MediaType.APPLICATION_JSON)
-	public String returnDoctorsByInsurance(@PathParam("iname")String i_name){
+	public List<Doctor> returnDoctorsByInsurance(@PathParam("iname")String i_name){
 		Insurance i = iDao.returnInsuranceByName(i_name);
 		System.out.println(i);
 		List<Doctor> dlist = new ArrayList<Doctor>();
 		dlist.addAll(i.getDoctorList());
-		
-		
-		
-		System.out.println(dlist.toString());
-		return dlist.toString();
+		return dlist;
 	}
 
 }

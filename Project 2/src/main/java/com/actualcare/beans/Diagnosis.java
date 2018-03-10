@@ -46,10 +46,6 @@ public class Diagnosis {
 	}
 
 	
-	
-
-
-
 	public void setPatientDiagonsis(Patient patientDiagonsis) {
 		this.patientDiagonsis = patientDiagonsis;
 	}
@@ -69,47 +65,6 @@ public class Diagnosis {
 		super();
 	}
 	
-	@Override
-	public String toString() {
-		return "Diagnosis [diagnosis_id=" + diagnosis_id + ", d_name=" + d_name + "]";
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((d_name == null) ? 0 : d_name.hashCode());
-		result = prime * result + ((diagnosis_id == null) ? 0 : diagnosis_id.hashCode());
-		result = prime * result + ((patientDiagonsis == null) ? 0 : patientDiagonsis.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Diagnosis other = (Diagnosis) obj;
-		if (d_name == null) {
-			if (other.d_name != null)
-				return false;
-		} else if (!d_name.equals(other.d_name))
-			return false;
-		if (diagnosis_id == null) {
-			if (other.diagnosis_id != null)
-				return false;
-		} else if (!diagnosis_id.equals(other.diagnosis_id))
-			return false;
-		if (patientDiagonsis == null) {
-			if (other.patientDiagonsis != null)
-				return false;
-		} else if (!patientDiagonsis.equals(other.patientDiagonsis))
-			return false;
-		return true;
-	}
 
 	
 }
