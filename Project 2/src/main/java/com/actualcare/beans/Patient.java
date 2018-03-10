@@ -46,11 +46,9 @@ public class Patient {
 	@OneToMany(mappedBy = "patientDiagonsis", fetch=FetchType.EAGER)
 	private Set<Diagnosis> medicalHistory;
 	
-	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	private Insurance myInsurance;
-	
-	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	private Doctor PCP;
+	private String myInsurance;
+
+	private String PCP;
 	
 	@OneToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="Login_id")
@@ -86,7 +84,7 @@ public class Patient {
 		this.login = login;}
 
 	/**Register args constructor**/
-	public Patient(Insurance myInsurance, Doctor PCP, LoginInfo login,PersonalInfo myPersonalInfo) {
+	public Patient(String myInsurance, String PCP, LoginInfo login,PersonalInfo myPersonalInfo) {
 		this.myAppointments = new HashSet<Appointments>();
 		this.medicalHistory = new HashSet<Diagnosis>();
 		this.medicalTests = new HashSet<MedicalRecords>();
@@ -99,7 +97,7 @@ public class Patient {
 	
 
 	/**Set less all args constructor**/
-	public Patient( Allergy myAllgeries, Insurance myInsurance, LoginInfo login,
+	public Patient( Allergy myAllgeries, String myInsurance, LoginInfo login,
 			PersonalInfo myPersonalInfo, Sympton mySymptons, Treatment myMedications) {
 		this.myAppointments = new HashSet<Appointments>();
 		this.medicalHistory = new HashSet<Diagnosis>();
@@ -114,7 +112,7 @@ public class Patient {
 
 	/**Except p_id, all args constructor**/
 	public Patient(Allergy myAllgeries, Set<Appointments> myAppointments, Set<Diagnosis> medicalHistory,
-			Insurance myInsurance, LoginInfo login, Set<MedicalRecords> medicalTests, PersonalInfo myPersonalInfo,
+			String myInsurance, LoginInfo login, Set<MedicalRecords> medicalTests, PersonalInfo myPersonalInfo,
 			Sympton mySymptons, Treatment myMedications) {
 		this.myAllgeries = myAllgeries;
 		this.myAppointments = myAppointments;
@@ -129,8 +127,8 @@ public class Patient {
 
 	/**All args constructor**/
 	public Patient(Integer p_id, Allergy myAllgeries, Set<Appointments> myAppointments, Set<Diagnosis> medicalHistory,
-			Insurance myInsurance, LoginInfo login, Set<MedicalRecords> medicalTests, PersonalInfo myPersonalInfo,
-			Sympton mySymptons, Treatment myMedications, Doctor PCP) {
+			String myInsurance, LoginInfo login, Set<MedicalRecords> medicalTests, PersonalInfo myPersonalInfo,
+			Sympton mySymptons, Treatment myMedications, String PCP) {
 		this.p_id = p_id;
 		this.myAllgeries = myAllgeries;
 		this.myAppointments = myAppointments;
@@ -153,7 +151,7 @@ public class Patient {
 	/**Sets the value of medicalHistory**/
 	public void setMedicalHistory(Set<Diagnosis> medicalHistory) {this.medicalHistory = medicalHistory;}
 	/**Sets the value of myInsurance**/
-	public void setMyInsurance(Insurance myInsurance) {this.myInsurance = myInsurance;}
+	public void setMyInsurance(String myInsurance) {this.myInsurance = myInsurance;}
 	/**Sets the value of login**/
 	public void setLogin(LoginInfo login) {this.login = login;}
 	/**Sets the value of medicaTests**/
@@ -165,7 +163,7 @@ public class Patient {
 	/**Sets the value of myMedications**/
 	public void setMyMedications(Treatment myMedications) {this.myMedications = myMedications;}
 	/**Sets the value of PCP**/
-	public void setPCP(Doctor pCP) {PCP = pCP;}
+	public void setPCP(String pCP) {PCP = pCP;}
 	
 	/**Returns the value of p_id**/
 	public Integer getP_id() {return p_id;}
@@ -176,7 +174,7 @@ public class Patient {
 	/**Returns the value of medicalHistory**/
 	public Set<Diagnosis> getMedicalHistory() {return medicalHistory;}
 	/**Returns the value of myInsurance**/
-	public Insurance getMyInsurance() {return myInsurance;}
+	public String getMyInsurance() {return myInsurance;}
 	/**Returns the value of login**/
 	public LoginInfo getLogin() {return login;}
 	/**Returns the value of medicalTests**/
@@ -188,7 +186,7 @@ public class Patient {
 	/**Returns the value of mymedications**/
 	public Treatment getMyMedications() {return myMedications;}
 	/**Returns the value of PCP**/
-	public Doctor getPCP() {return PCP;}
+	public String getPCP() {return PCP;}
 
 	
 }

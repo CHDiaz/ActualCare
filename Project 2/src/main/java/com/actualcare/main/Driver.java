@@ -2,11 +2,13 @@ package com.actualcare.main;
 
 import java.util.Set;
 
+import com.actualcare.beans.Admin;
 import com.actualcare.beans.Doctor;
 import com.actualcare.beans.Insurance;
 import com.actualcare.beans.LoginInfo;
 import com.actualcare.beans.Patient;
 import com.actualcare.beans.PersonalInfo;
+import com.actualcare.dao.AdminDao;
 import com.actualcare.dao.DoctorDao;
 import com.actualcare.dao.InsuranceDao;
 import com.actualcare.dao.InsuranceDaoImpl;
@@ -123,7 +125,7 @@ public class Driver {
 //		pDao.delete(p);
 		
 		//Insurance(String i_name, Set<Doctor> doctorList)
-	/*	Insurance i1 = new Insurance("UNITED_HEALTH");
+		/*Insurance i1 = new Insurance("UNITED_HEALTH");
 		Insurance i2 = new Insurance("WELL_CARE");
 		Insurance i3 = new Insurance("WELL_POINT");
 		Insurance i4 = new Insurance("OSCAR");
@@ -182,16 +184,16 @@ public class Driver {
 		iDao.insert(i4);
 		iDao.insert(i5);
 		System.out.println("Stuff inserted");
-		*/
-/*		InsuranceDao iDao = new InsuranceDaoImpl();
+		
+		InsuranceDao iDao = new InsuranceDaoImpl();
 		//Insurance i = new Insurance("WTF");
 		//iDao.insert(i);
 		Insurance i2 = iDao.returnInsuranceByName("WELL_CARE");
 		//iDao.delete(i);
-		System.out.println(i2.getI_name());*/
+		System.out.println(i2.getI_name());
 		
 		
-/*		PatientDao pDao = new PatientDaoImpl();
+		PatientDao pDao = new PatientDaoImpl();
 		InsuranceDao iDao = new InsuranceDaoImpl();
 		
 		Insurance i = iDao.returnInsuranceByName("WELL_CARE");
@@ -207,9 +209,9 @@ public class Driver {
 		System.out.println(p_id);
 		pDao.delete(p);
 		System.out.println("its gone");
-		*/
-		InsuranceDao iDao = new InsuranceDaoImpl();
-		PatientDao pDao = new PatientDaoImpl();
+		
+		//InsuranceDao iDao = new InsuranceDaoImpl();
+			PatientDao pDao = new PatientDaoImpl();
 		Insurance i = iDao.returnInsuranceByName("NO_INSURANCE");
 		
 		System.out.println("=======GOT INSURANCE==========");
@@ -227,7 +229,8 @@ public class Driver {
 		System.out.println("=======GOT INSURANCE AGAIN==========");
 		
 		System.out.println(i2.getCustomers().iterator().next().getP_id());
-		System.exit(0);
+		Insurance i = iDao.returnInsuranceByName("NO_INSURANCE");
+		System.exit(0);*/
 		
 	}
 	
