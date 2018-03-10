@@ -97,6 +97,17 @@ public class Patient {
 		this.myPersonalInfo = myPersonalInfo;
 	}
 	
+	
+	
+	
+	public Patient(Insurance myInsurance, Doctor PCP, LoginInfo login, PersonalInfo myPersonalInfo) {
+		super();
+		this.myInsurance = myInsurance;
+		this.PCP = PCP;
+		this.login = login;
+		this.myPersonalInfo = myPersonalInfo;
+	}
+
 	/**Set less all args constructor**/
 	public Patient( Allergy myAllgeries, Insurance myInsurance, LoginInfo login,
 			PersonalInfo myPersonalInfo, Sympton mySymptons, Treatment myMedications) {
