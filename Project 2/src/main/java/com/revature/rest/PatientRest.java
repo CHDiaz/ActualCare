@@ -43,8 +43,8 @@ public class PatientRest {
 		p.setPCP(d);										// Set the new value for the Patient p's PCP.
 		p.setMyInsurance(i);								// Set the new value for Patient p's myInsurance.
 		pDao.insertRegister(p);								// Insert this new patient into the table.
-		iDao.updatePatientList(i);							// Update the Insurance object to include this new patient
-		DoctorDao.updatePatientList(d);						// Update the Doctor object to include this new patient
+		//iDao.updatePatientList(i);							// Update the Insurance object to include this new patient
+		//DoctorDao.updatePatientList(d);						// Update the Doctor object to include this new patient
 		
 	
 	}
