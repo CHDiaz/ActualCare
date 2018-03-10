@@ -185,13 +185,13 @@ public class Patient {
 	/**Returns the value of mymedications**/
 	public Treatment getMyMedications() {return myMedications;}
 
-/*	@Override
+	@Override
 	public String toString() {
 		return "Patient [p_id=" + p_id + ", myAllgeries=" + myAllgeries + ", myAppointments=" + myAppointments
 				+ ", medicalHistory=" + medicalHistory + ", myInsurance=" + myInsurance + ", login=" + login
 				+ ", medicalTests=" + medicalTests + ", myPersonalInfo=" + myPersonalInfo + ", mySymptons=" + mySymptons
 				+ ", myMedications=" + myMedications + "]";
-	}*/
+	}
 
 	@Override
 	public int hashCode() {

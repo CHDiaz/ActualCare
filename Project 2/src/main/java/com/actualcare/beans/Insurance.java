@@ -3,12 +3,15 @@ package com.actualcare.beans;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
@@ -37,7 +40,11 @@ public class Insurance {
 	@OneToMany(mappedBy = "myInsurance", fetch=FetchType.EAGER)
 	private Set<Patient> customers;
 	
-	@ManyToMany(mappedBy = "insuranceList",  fetch = FetchType.LAZY)
+	@ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+	@JoinTable(
+			name = "Doctor_Insurance",
+			joinColumns = { @JoinColumn(name = "Doc_id") },
+			inverseJoinColumns = { @JoinColumn(name = "i_id") })
 	private Set<Doctor> doctorList;
 	
 	/**No args constructor that intializes customers and doctorList to a new HashSet**/
@@ -99,10 +106,10 @@ public class Insurance {
 		doctorList.add(d);
 	}
 	
-	/*@Override
+/*	@Override
 	public String toString() {
 		return "Insurance [insurance_id=" + i_id + ", i_name=" + i_name + "]";
-	}*/
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -112,7 +119,7 @@ public class Insurance {
 		result = prime * result + ((i_id == null) ? 0 : i_id.hashCode());
 		result = prime * result + ((i_name == null) ? 0 : i_name.hashCode());
 		return result;
-	}
+	}*/
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

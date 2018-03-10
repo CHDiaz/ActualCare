@@ -5,7 +5,7 @@ import com.actualcare.beans.Doctor;
 import com.actualcare.beans.Insurance;
 import com.actualcare.beans.LoginInfo;
 import com.actualcare.beans.Patient;
-
+import com.actualcare.beans.PersonalInfo;
 import com.actualcare.dao.AdminDao;
 import com.actualcare.dao.DoctorDao;
 import com.actualcare.dao.InsuranceDao;
@@ -34,20 +34,20 @@ public class Driver {
 		
 		// Patient login data insert test
 		
-//		Patient p = new Patient(
-//				(new Insurance("WELL_CARE")),
-//				(new LoginInfo("harish@com","harish","patient")),
-//				(new PersonalInfo("harish","chandramohan",20,"MALE",300,"Allen","NewYork","NY")));
-//		PatientDaoImpl pp = new PatientDaoImpl();
-//		pp.insert(p);
+		Patient p = new Patient(
+				(new Insurance("WELL_CARE")),
+				(new LoginInfo("harish@com","harish","patient")),
+				(new PersonalInfo("harish","chandramohan",20,"MALE",300,"Allen","NewYork","NY")));
+		PatientDaoImpl pp = new PatientDaoImpl();
+		pp.insert(p);
 //		
 		// Doctor login data insert test
-/*		Doctor d = new Doctor(null, (new LoginInfo("christian@com","christian","doctor")));
-		DoctorDao.insertDoctor(d);*/
+		Doctor d = new Doctor(null, (new LoginInfo("christian@com","christian","doctor")));
+		DoctorDao.insertDoctor(d);
 		
 		// Admin login data insert test
-/*		Admin a = new Admin((new LoginInfo("steven@com","steven","admin")));
-		AdminDao.insertAdmin(a);*/
+		Admin a = new Admin((new LoginInfo("steven@com","steven","admin")));
+		AdminDao.insertAdmin(a);
 		
 //		// Treatement data insert test
 //		Treatment t = new Treatment("test");
@@ -137,7 +137,7 @@ public class Driver {
 //		pDao.delete(p);
 		
 		//Insurance(String i_name, Set<Doctor> doctorList)
-/*		Insurance i1 = new Insurance("UNITED_HEALTH");
+		Insurance i1 = new Insurance("UNITED_HEALTH");
 		Insurance i2 = new Insurance("WELL_CARE");
 		Insurance i3 = new Insurance("WELL_POINT");
 		Insurance i4 = new Insurance("OSCAR");
@@ -156,27 +156,6 @@ public class Driver {
 		Doctor d3 = new Doctor("HEALING", l3);
 		Doctor d4 = new Doctor("STEPHANIE", l4);
 		Doctor d5 = new Doctor("BOBBERT", l5) ;
-		
-		d1.addInsurance(i1);
-		d1.addInsurance(i2);
-		d1.addInsurance(i5);
-		
-		d2.addInsurance(i1);
-		d2.addInsurance(i2);
-		d2.addInsurance(i3);
-		d2.addInsurance(i5);
-		
-		d3.addInsurance(i4);
-		d3.addInsurance(i5);
-		
-		d4.addInsurance(i3);
-		d4.addInsurance(i5);
-		
-		d5.addInsurance(i1);
-		d5.addInsurance(i2);
-		d5.addInsurance(i3);
-		d5.addInsurance(i4);
-		d5.addInsurance(i5);
 		
 		i1.addDoctor(d1);
 		i1.addDoctor(d2);
@@ -216,14 +195,14 @@ public class Driver {
 		iDao.insert(i3);
 		iDao.insert(i4);
 		iDao.insert(i5);
-		System.out.println("Stuff inserted");*/
+		System.out.println("Stuff inserted");
 		
-		InsuranceDao iDao = new InsuranceDaoImpl();
+/*		InsuranceDao iDao = new InsuranceDaoImpl();
 		//Insurance i = new Insurance("WTF");
 		//iDao.insert(i);
 		Insurance i2 = iDao.returnInsuranceByName("WELL_CARE");
 		//iDao.delete(i);
-		System.out.println(i2.getI_name());
+		System.out.println(i2.getI_name());*/
 		
 	}
 	
