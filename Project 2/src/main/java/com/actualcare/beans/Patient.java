@@ -195,23 +195,6 @@ public class Patient {
 	}
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((login == null) ? 0 : login.hashCode());
-		result = prime * result + ((medicalHistory == null) ? 0 : medicalHistory.hashCode());
-		result = prime * result + ((medicalTests == null) ? 0 : medicalTests.hashCode());
-		result = prime * result + ((myAllgeries == null) ? 0 : myAllgeries.hashCode());
-		result = prime * result + ((myAppointments == null) ? 0 : myAppointments.hashCode());
-		result = prime * result + ((myInsurance == null) ? 0 : myInsurance.hashCode());
-		result = prime * result + ((myMedications == null) ? 0 : myMedications.hashCode());
-		result = prime * result + ((myPersonalInfo == null) ? 0 : myPersonalInfo.hashCode());
-		result = prime * result + ((mySymptons == null) ? 0 : mySymptons.hashCode());
-		result = prime * result + ((p_id == null) ? 0 : p_id.hashCode());
-		return result;
-	}
-
-	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
