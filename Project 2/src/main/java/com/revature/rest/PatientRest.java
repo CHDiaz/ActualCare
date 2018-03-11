@@ -53,10 +53,10 @@ public class PatientRest {
 	
 	
 	@GET
-	@Path("/getpatient/{lid}")//http://localhost:8085/ActualCare/rest/patient//getpatient/{lid}
+	@Path("/get/{lid}")//http://localhost:8085/ActualCare/rest/patient/get/{lid}
 	@Produces(MediaType.APPLICATION_JSON)
-	public Patient getPatient(@PathParam("lid")int login_id) {
-		return pDao.returnPatientByLoginId(login_id);
+	public Patient getPatient(@PathParam("lid")int lid) {
+		return pDao.returnPatientByLoginId(lid);
 		
 	}
 	
