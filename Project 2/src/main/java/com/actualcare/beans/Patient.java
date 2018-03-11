@@ -46,13 +46,9 @@ public class Patient {
 	@OneToMany(mappedBy = "patientDiagonsis", fetch=FetchType.EAGER)
 	private Set<Diagnosis> medicalHistory;
 	
-	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="Patient_Insurance")
-	private Insurance myInsurance;
-	
-	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="Patient_Doctor")
-	private Doctor PCP;
+	private String myInsurance;
+
+	private String PCP;
 	
 	@OneToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="Login_id")
@@ -75,6 +71,8 @@ public class Patient {
 	
 	/**No args constructor**/
 	public Patient() {
+		this.myAllgeries = new Allergy("No Allergies yet");
+		this.mySymptons = new Sympton("No symptoms yet");
 		this.myAppointments = new HashSet<Appointments>();
 		this.medicalHistory = new HashSet<Diagnosis>();
 		this.medicalTests = new HashSet<MedicalRecords>();
@@ -82,23 +80,28 @@ public class Patient {
 
 	/**Only login info constructor**/
 	public Patient(LoginInfo login) {
+		this.myAllgeries = new Allergy("No Allergies yet");
+		this.mySymptons = new Sympton("No symptoms yet");
 		this.myAppointments = new HashSet<Appointments>();
 		this.medicalHistory = new HashSet<Diagnosis>();
 		this.medicalTests = new HashSet<MedicalRecords>();
 		this.login = login;}
 
-	/**Set less all args constructor**/
-	public Patient(Insurance myInsurance, LoginInfo login,PersonalInfo myPersonalInfo) {
+	/**Register args constructor**/
+	public Patient(String myInsurance, String PCP, LoginInfo login,PersonalInfo myPersonalInfo) {
+		this.myAllgeries = new Allergy("No Allergies yet");
+		this.mySymptons = new Sympton("No symptoms yet");
 		this.myAppointments = new HashSet<Appointments>();
 		this.medicalHistory = new HashSet<Diagnosis>();
 		this.medicalTests = new HashSet<MedicalRecords>();
 		this.myInsurance = myInsurance;
+		this.PCP = PCP;
 		this.login = login;
 		this.myPersonalInfo = myPersonalInfo;
 	}
 	
 	/**Set less all args constructor**/
-	public Patient( Allergy myAllgeries, Insurance myInsurance, LoginInfo login,
+	public Patient( Allergy myAllgeries, String myInsurance, LoginInfo login,
 			PersonalInfo myPersonalInfo, Sympton mySymptons, Treatment myMedications) {
 		this.myAppointments = new HashSet<Appointments>();
 		this.medicalHistory = new HashSet<Diagnosis>();
@@ -113,7 +116,7 @@ public class Patient {
 
 	/**Except p_id, all args constructor**/
 	public Patient(Allergy myAllgeries, Set<Appointments> myAppointments, Set<Diagnosis> medicalHistory,
-			Insurance myInsurance, LoginInfo login, Set<MedicalRecords> medicalTests, PersonalInfo myPersonalInfo,
+			String myInsurance, LoginInfo login, Set<MedicalRecords> medicalTests, PersonalInfo myPersonalInfo,
 			Sympton mySymptons, Treatment myMedications) {
 		this.myAllgeries = myAllgeries;
 		this.myAppointments = myAppointments;
@@ -128,8 +131,8 @@ public class Patient {
 
 	/**All args constructor**/
 	public Patient(Integer p_id, Allergy myAllgeries, Set<Appointments> myAppointments, Set<Diagnosis> medicalHistory,
-			Insurance myInsurance, LoginInfo login, Set<MedicalRecords> medicalTests, PersonalInfo myPersonalInfo,
-			Sympton mySymptons, Treatment myMedications, Doctor PCP) {
+			String myInsurance, LoginInfo login, Set<MedicalRecords> medicalTests, PersonalInfo myPersonalInfo,
+			Sympton mySymptons, Treatment myMedications, String PCP) {
 		this.p_id = p_id;
 		this.myAllgeries = myAllgeries;
 		this.myAppointments = myAppointments;
@@ -152,7 +155,7 @@ public class Patient {
 	/**Sets the value of medicalHistory**/
 	public void setMedicalHistory(Set<Diagnosis> medicalHistory) {this.medicalHistory = medicalHistory;}
 	/**Sets the value of myInsurance**/
-	public void setMyInsurance(Insurance myInsurance) {this.myInsurance = myInsurance;}
+	public void setMyInsurance(String myInsurance) {this.myInsurance = myInsurance;}
 	/**Sets the value of login**/
 	public void setLogin(LoginInfo login) {this.login = login;}
 	/**Sets the value of medicaTests**/
@@ -163,7 +166,9 @@ public class Patient {
 	public void setMySymptons(Sympton mySymptons) {this.mySymptons = mySymptons;}
 	/**Sets the value of myMedications**/
 	public void setMyMedications(Treatment myMedications) {this.myMedications = myMedications;}
-
+	/**Sets the value of PCP**/
+	public void setPCP(String pCP) {PCP = pCP;}
+	
 	/**Returns the value of p_id**/
 	public Integer getP_id() {return p_id;}
 	/**Returns the value of myAllgeries**/
@@ -173,7 +178,7 @@ public class Patient {
 	/**Returns the value of medicalHistory**/
 	public Set<Diagnosis> getMedicalHistory() {return medicalHistory;}
 	/**Returns the value of myInsurance**/
-	public Insurance getMyInsurance() {return myInsurance;}
+	public String getMyInsurance() {return myInsurance;}
 	/**Returns the value of login**/
 	public LoginInfo getLogin() {return login;}
 	/**Returns the value of medicalTests**/
@@ -184,6 +189,8 @@ public class Patient {
 	public Sympton getMySymptons() {return mySymptons;}
 	/**Returns the value of mymedications**/
 	public Treatment getMyMedications() {return myMedications;}
+	/**Returns the value of PCP**/
+	public String getPCP() {return PCP;}
 
 	@Override
 	public String toString() {
@@ -191,23 +198,6 @@ public class Patient {
 				+ ", medicalHistory=" + medicalHistory + ", myInsurance=" + myInsurance + ", login=" + login
 				+ ", medicalTests=" + medicalTests + ", myPersonalInfo=" + myPersonalInfo + ", mySymptons=" + mySymptons
 				+ ", myMedications=" + myMedications + "]";
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((login == null) ? 0 : login.hashCode());
-		result = prime * result + ((medicalHistory == null) ? 0 : medicalHistory.hashCode());
-		result = prime * result + ((medicalTests == null) ? 0 : medicalTests.hashCode());
-		result = prime * result + ((myAllgeries == null) ? 0 : myAllgeries.hashCode());
-		result = prime * result + ((myAppointments == null) ? 0 : myAppointments.hashCode());
-		result = prime * result + ((myInsurance == null) ? 0 : myInsurance.hashCode());
-		result = prime * result + ((myMedications == null) ? 0 : myMedications.hashCode());
-		result = prime * result + ((myPersonalInfo == null) ? 0 : myPersonalInfo.hashCode());
-		result = prime * result + ((mySymptons == null) ? 0 : mySymptons.hashCode());
-		result = prime * result + ((p_id == null) ? 0 : p_id.hashCode());
-		return result;
 	}
 
 	@Override

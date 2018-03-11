@@ -1,36 +1,18 @@
 package com.actualcare.main;
 
-import com.actualcare.beans.Admin;
-import com.actualcare.beans.Doctor;
-import com.actualcare.beans.Insurance;
+import com.actualcare.beans.Allergy;
 import com.actualcare.beans.LoginInfo;
 import com.actualcare.beans.Patient;
 import com.actualcare.beans.PersonalInfo;
-import com.actualcare.dao.AdminDao;
-import com.actualcare.dao.DoctorDao;
-import com.actualcare.dao.InsuranceDao;
-import com.actualcare.dao.InsuranceDaoImpl;
+import com.actualcare.beans.Sympton;
 import com.actualcare.dao.PatientDao;
 import com.actualcare.dao.PatientDaoImpl;
-
-import com.actualcare.dao.LoginInfoDao;
-import com.actualcare.dao.PatientDao;
-import com.actualcare.dao.TreatmentDao;
-import com.actualcare.dao.TreatmentDaoImpl;
-
-import java.io.File;
-import java.io.IOException;
-
-import org.apache.commons.io.FileUtils;
-
-import com.actualcare.beans.MedicalRecords;
-import com.actualcare.dao.MedicalRecordsDao;
-import com.actualcare.dao.MedicalRecordsDaoImpl;
 
 
 public class Driver {
 
 	public static void main(String[] args) {
+<<<<<<< HEAD
 		
 		// Patient login data insert test
 		//Patient p = new Patient((new LoginInfo("harish@com","harish","patient")));
@@ -213,6 +195,16 @@ public class Driver {
 		Insurance i2 = iDao.returnInsuranceByName("WELL_CARE");
 		//iDao.delete(i);
 		System.out.println(i2.getI_name());*/
+=======
+		PatientDao pDao = new PatientDaoImpl();
+		Patient p = new Patient("WELL_CARE", "BOBBERT", new LoginInfo(), new PersonalInfo() );
+		p.setMyAllgeries(new Allergy("No Allergies yet"));
+		p.setMySymptons(new Sympton("No symptoms yet"));
+		pDao.insertRegister(p);
+		System.out.println("==========================");
+		pDao.delete(p);
+		System.exit(0);
+>>>>>>> cc7dff36e2ff00b1ef73da0d424832af52eaa6fe
 		
 	}
 	
