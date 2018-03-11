@@ -188,15 +188,6 @@ public class Patient {
 	/**Returns the value of PCP**/
 	public String getPCP() {return PCP;}
 
-<<<<<<< HEAD
-||||||| merged common ancestors
-	@Override
-	public String toString() {
-		return "Patient [p_id=" + p_id + ", myAllgeries=" + myAllgeries + ", myAppointments=" + myAppointments
-				+ ", medicalHistory=" + medicalHistory + ", myInsurance=" + myInsurance + ", login=" + login
-				+ ", medicalTests=" + medicalTests + ", myPersonalInfo=" + myPersonalInfo + ", mySymptons=" + mySymptons
-				+ ", myMedications=" + myMedications + "]";
-	}
 
 	@Override
 	public int hashCode() {
@@ -215,69 +206,7 @@ public class Patient {
 		return result;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Patient other = (Patient) obj;
-		if (login == null) {
-			if (other.login != null)
-				return false;
-		} else if (!login.equals(other.login))
-			return false;
-		if (medicalHistory == null) {
-			if (other.medicalHistory != null)
-				return false;
-		} else if (!medicalHistory.equals(other.medicalHistory))
-			return false;
-		if (medicalTests == null) {
-			if (other.medicalTests != null)
-				return false;
-		} else if (!medicalTests.equals(other.medicalTests))
-			return false;
-		if (myAllgeries == null) {
-			if (other.myAllgeries != null)
-				return false;
-		} else if (!myAllgeries.equals(other.myAllgeries))
-			return false;
-		if (myAppointments == null) {
-			if (other.myAppointments != null)
-				return false;
-		} else if (!myAppointments.equals(other.myAppointments))
-			return false;
-		if (myInsurance == null) {
-			if (other.myInsurance != null)
-				return false;
-		} else if (!myInsurance.equals(other.myInsurance))
-			return false;
-		if (myMedications == null) {
-			if (other.myMedications != null)
-				return false;
-		} else if (!myMedications.equals(other.myMedications))
-			return false;
-		if (myPersonalInfo == null) {
-			if (other.myPersonalInfo != null)
-				return false;
-		} else if (!myPersonalInfo.equals(other.myPersonalInfo))
-			return false;
-		if (mySymptons == null) {
-			if (other.mySymptons != null)
-				return false;
-		} else if (!mySymptons.equals(other.mySymptons))
-			return false;
-		if (p_id == null) {
-			if (other.p_id != null)
-				return false;
-		} else if (!p_id.equals(other.p_id))
-			return false;
-		return true;
-	}	
-	
-=======
+
 	@Override
 	public String toString() {
 		return "Patient [p_id=" + p_id + ", myAllgeries=" + myAllgeries + ", myAppointments=" + myAppointments
@@ -348,6 +277,5 @@ public class Patient {
 		return true;
 	}	
 	
->>>>>>> daafcd24ceccb27dbe09331258943f627efadcd2
 	
 }
