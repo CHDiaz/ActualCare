@@ -33,13 +33,10 @@ public class Driver {
 	public static void main(String[] args) {
 		
 		// Patient login data insert test
-<<<<<<< HEAD
 		//Patient p = new Patient((new LoginInfo("harish@com","harish","patient")));
 		//PatientDao.insertPatient(p);
 	/*	Patient p = new Patient((new LoginInfo("harish@com","harish","patient")));
 		PatientDao.insert(p);*/
-=======
->>>>>>> 8f4e6fac94085a17fa3ddf18af3eae18a7f05871
 		
 		Patient p = new Patient(
 				(new Insurance("WELL_CARE")),
@@ -53,15 +50,12 @@ public class Driver {
 		DoctorDao.insertDoctor(d);
 		
 		// Admin login data insert test
-<<<<<<< HEAD
 		//Admin a = new Admin((new LoginInfo("steven@com","steven","admin")));
 		//AdminDao.insertAdmin(a);
 //		Admin a = new Admin((new LoginInfo("steven@com","steven","admin")));
 //		AdminDao.insertAdmin(a);
-=======
 		Admin a = new Admin((new LoginInfo("steven@com","steven","admin")));
 		AdminDao.insertAdmin(a);
->>>>>>> 8f4e6fac94085a17fa3ddf18af3eae18a7f05871
 		
 //		// Treatement data insert test
 //		Treatment t = new Treatment("test");
@@ -72,14 +66,11 @@ public class Driver {
 //		Treatment t1 = tDao.returnTreatment(id);
 //		System.out.println(t1.getT_id());
 //		System.out.println(t.getT_id());
-<<<<<<< HEAD
 		//System.out.println(LoginInfoDao.getAllLogin());
 //		System.out.println(LoginInfoDao.getAllLogin());
-=======
 		
 //		System.out.println(LoginInfoDao.getAllLogin());
 
->>>>>>> 8f4e6fac94085a17fa3ddf18af3eae18a7f05871
 		// Treatment data insert test
 /*		Treatment t = new Treatment("test");
 		TreatmentDao tDao = new TreatmentDaoImpl();
