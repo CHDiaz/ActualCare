@@ -12,15 +12,7 @@ import com.actualcare.dao.PatientDaoImpl;
 public class Driver {
 
 	public static void main(String[] args) {
-		PatientDao pDao = new PatientDaoImpl();
-		Patient p = new Patient("WELL_CARE", "BOBBERT", new LoginInfo(), new PersonalInfo() );
-		p.setMyAllgeries(new Allergy("No Allergies yet"));
-		p.setMySymptons(new Sympton("No symptoms yet"));
-		pDao.insertRegister(p);
-		System.out.println("==========================");
-		pDao.delete(p);
-		System.exit(0);
-		
+
 	}
 	
 }
