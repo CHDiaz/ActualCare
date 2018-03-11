@@ -71,6 +71,8 @@ public class Patient {
 	
 	/**No args constructor**/
 	public Patient() {
+		this.myAllgeries = new Allergy("No Allergies yet");
+		this.mySymptons = new Sympton("No symptoms yet");
 		this.myAppointments = new HashSet<Appointments>();
 		this.medicalHistory = new HashSet<Diagnosis>();
 		this.medicalTests = new HashSet<MedicalRecords>();
@@ -78,6 +80,8 @@ public class Patient {
 
 	/**Only login info constructor**/
 	public Patient(LoginInfo login) {
+		this.myAllgeries = new Allergy("No Allergies yet");
+		this.mySymptons = new Sympton("No symptoms yet");
 		this.myAppointments = new HashSet<Appointments>();
 		this.medicalHistory = new HashSet<Diagnosis>();
 		this.medicalTests = new HashSet<MedicalRecords>();
@@ -85,6 +89,8 @@ public class Patient {
 
 	/**Register args constructor**/
 	public Patient(String myInsurance, String PCP, LoginInfo login,PersonalInfo myPersonalInfo) {
+		this.myAllgeries = new Allergy("No Allergies yet");
+		this.mySymptons = new Sympton("No symptoms yet");
 		this.myAppointments = new HashSet<Appointments>();
 		this.medicalHistory = new HashSet<Diagnosis>();
 		this.medicalTests = new HashSet<MedicalRecords>();

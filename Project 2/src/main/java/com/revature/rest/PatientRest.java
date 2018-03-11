@@ -7,9 +7,11 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import com.actualcare.beans.Allergy;
 import com.actualcare.beans.Doctor;
 import com.actualcare.beans.Insurance;
 import com.actualcare.beans.Patient;
+import com.actualcare.beans.Sympton;
 import com.actualcare.dao.AllergyDao;
 import com.actualcare.dao.AllergyDaoImpl;
 import com.actualcare.dao.DoctorDao;
@@ -43,8 +45,10 @@ public class PatientRest {
 		Doctor d = DoctorDao.returnDoctorByName(d_name);	// Search for the corresponding Doctor record in the Doctor table
 		d.addPatient(p); 									// Add this new patient to this Doctor object's set of patients
 		
-		p.setPCP(d.getName());										// Set the new value for the Patient p's PCP.
-		p.setMyInsurance(i.getI_name());								// Set the new value for Patient p's myInsurance.
+		p.setPCP(d.getName());								// Set the new value for the Patient p's PCP.
+		p.setMyInsurance(i.getI_name());					// Set the new value for Patient p's myInsurance.
+		p.setMyAllgeries(new Allergy("No Allergies yet"));	// Set a new value for Patient's Allergy
+		p.setMySymptons(new Sympton("No symptoms yet"));	// Set a new value for Patient's Allergy
 		pDao.insertRegister(p);								// Insert this new patient into the table.
 		iDao.updatePatientList(i);							// Update the Insurance object to include this new patient
 		DoctorDao.updatePatientList(d);						// Update the Doctor object to include this new patient
@@ -71,7 +75,7 @@ public class PatientRest {
 	@Produces(MediaType.APPLICATION_JSON)
 	public void updateSympton(@PathParam("lid")int login_id, @PathParam("symptom") String sy) {
 		Patient p = pDao.returnPatientByLoginId(login_id);
-		p.getMySymptons().setS_name(sy);;
+		pDao.updateSympton(p, sy);
 	}
 
 }
