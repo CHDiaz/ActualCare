@@ -228,7 +228,7 @@ public class PatientDaoImpl implements PatientDao {
 
 		try {
 			tx = session.beginTransaction();
-			patient = (Patient) session.createCriteria(Patient.class).add(Restrictions.idEq(l_id)).uniqueResult();
+			patient = (Patient) session.createCriteria(Patient.class).createAlias("login", "l").add(Restrictions.eq("l.Login_id", l_id))  .uniqueResult();
 
 		} catch (HibernateException e) {
 			if (tx != null) {
