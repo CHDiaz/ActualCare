@@ -1,17 +1,7 @@
 package com.actualcare.main;
 
-import java.util.Set;
-
-import com.actualcare.beans.Admin;
-import com.actualcare.beans.Doctor;
-import com.actualcare.beans.Insurance;
-import com.actualcare.beans.LoginInfo;
+import com.actualcare.beans.Allergy;
 import com.actualcare.beans.Patient;
-import com.actualcare.beans.PersonalInfo;
-import com.actualcare.dao.AdminDao;
-import com.actualcare.dao.DoctorDao;
-import com.actualcare.dao.InsuranceDao;
-import com.actualcare.dao.InsuranceDaoImpl;
 import com.actualcare.dao.PatientDao;
 import com.actualcare.dao.PatientDaoImpl;
 
@@ -230,6 +220,18 @@ public class Driver {
 		
 		System.out.println(i2.getCustomers().iterator().next().getP_id());
 		Insurance i = iDao.returnInsuranceByName("NO_INSURANCE");
+		*/
+		PatientDao pDao = new PatientDaoImpl();
+		Patient p = pDao.returnPatientByLoginId(150);
+		/*if (p.getMyAllgeries() == null) {
+			Allergy a = new Allergy("Im sick");
+			p.setMyAllgeries(a);;
+		}*/
+		
+	/*	pDao.updateAllergy(p, "Im sick");
+		System.out.println(p.getMyAllgeries().getA_name());
+		pDao.updateAllergy(p, "Im sicker");
+		System.out.println(p.getMyAllgeries().getA_name());
 		System.exit(0);*/
 		
 	}

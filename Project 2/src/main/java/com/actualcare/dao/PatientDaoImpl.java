@@ -9,7 +9,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
+import com.actualcare.beans.Allergy;
 import com.actualcare.beans.Patient;
+import com.actualcare.beans.Sympton;
 import com.actualcare.util.HibernateUtil;
 
 /**
@@ -91,6 +93,76 @@ public class PatientDaoImpl implements PatientDao {
 		return patient_id;
 	}
 	
+	/**
+	 * Method for inserting a record after registering into the Patients table, based on the
+	 * provided Patient object.
+	 **/
+	public void updateAllergy(Patient p, String allergy) {
+		logger.info("PatientDaoImpl insertRegister method called.");
+
+		if(p.getMyAllgeries() == null) {
+			Allergy a = new Allergy(allergy);
+			p.setMyAllgeries(a);
+		}else {
+			p.getMyAllgeries().setA_name(allergy);
+		}
+		
+		Session session = HibernateUtil.getSession();
+		Transaction tx = null;
+
+		try {
+			tx = session.beginTransaction();
+			session.saveOrUpdate(p.getMyAllgeries());
+			session.update(p);
+			tx.commit();
+			logger.info("Patient object updated with new Allergy successfully");
+
+		} catch (HibernateException e) {
+			if (tx != null) {
+				tx.rollback();
+				logger.error("Patient object was NOT upated with new Allergy");
+			}
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+	}
+	
+	/**
+	 * Method for inserting a record after registering into the Patients table, based on the
+	 * provided Patient object.
+	 **/
+	public void updateSympton(Patient p, String sympton) {
+		logger.info("PatientDaoImpl insertRegister method called.");
+
+		if(p.getMySymptons() == null) {
+			 Sympton s = new Sympton(sympton);
+			p.setMySymptons(s);
+		}else {
+			p.getMySymptons().setS_name(sympton);;
+		}
+		
+		Session session = HibernateUtil.getSession();
+		Transaction tx = null;
+
+		try {
+			tx = session.beginTransaction();
+			session.saveOrUpdate(p.getMySymptons());
+			session.update(p);
+			tx.commit();
+			logger.info("Patient object updated with new Allergy successfully");
+
+		} catch (HibernateException e) {
+			if (tx != null) {
+				tx.rollback();
+				logger.error("Patient object was NOT upated with new Allergy");
+			}
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+	}
+	
 
 	/**
 	 * Method for deleting a record from the Patients table, based on the
@@ -130,6 +202,33 @@ public class PatientDaoImpl implements PatientDao {
 		try {
 			tx = session.beginTransaction();
 			patient = (Patient) session.createCriteria(Patient.class).add(Restrictions.idEq(p_id)).uniqueResult();
+
+		} catch (HibernateException e) {
+			if (tx != null) {
+				tx.rollback();
+				logger.info("Patient object/record NOT found");
+			}
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		logger.info("Patient object returned successfully.");
+		return patient;
+	}
+	
+	/**
+	 * Method for returning a record from the Patients table as a Patient object, 
+	 * based on the provided Patient id.
+	 **/
+	public Patient returnPatientByLoginId(int l_id) {
+		logger.info("PatientDaoImpl returnAllergy method called.");
+		Patient patient = null;
+		Session session = HibernateUtil.getSession();
+		Transaction tx = null;
+
+		try {
+			tx = session.beginTransaction();
+			patient = (Patient) session.createCriteria(Patient.class).add(Restrictions.idEq(l_id)).uniqueResult();
 
 		} catch (HibernateException e) {
 			if (tx != null) {

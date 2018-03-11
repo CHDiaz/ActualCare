@@ -1,7 +1,9 @@
 package com.revature.rest;
 
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -17,6 +19,8 @@ import com.actualcare.dao.PatientDao;
 import com.actualcare.dao.PatientDaoImpl;
 import com.actualcare.dao.PersonalInfoDao;
 import com.actualcare.dao.PersonalInfoDaoImpl;
+import com.actualcare.dao.SymptonDao;
+import com.actualcare.dao.SymptonDaoImpl;
 
 @Path("/patient")
 public class PatientRest {
@@ -24,7 +28,7 @@ public class PatientRest {
 	InsuranceDao iDao = new InsuranceDaoImpl();
 	PersonalInfoDao peDao = new PersonalInfoDaoImpl();
 	AllergyDao agDao = new AllergyDaoImpl();
-	
+	SymptonDao sDao = new SymptonDaoImpl();
 	
 	@POST
 	@Path("/post")//http://localhost:8085/ActualCare/rest/patient/post
@@ -43,10 +47,33 @@ public class PatientRest {
 		p.setPCP(d.getName());										// Set the new value for the Patient p's PCP.
 		p.setMyInsurance(i.getI_name());								// Set the new value for Patient p's myInsurance.
 		pDao.insertRegister(p);								// Insert this new patient into the table.
-		//iDao.updatePatientList(i);							// Update the Insurance object to include this new patient
-		//DoctorDao.updatePatientList(d);						// Update the Doctor object to include this new patient
-		
+		iDao.updatePatientList(i);							// Update the Insurance object to include this new patient
+		DoctorDao.updatePatientList(d);						// Update the Doctor object to include this new patient
+	}
 	
+	
+	@GET
+	@Path("/getpatient/{lid}")//http://localhost:8085/ActualCare/rest/patient//getpatient/{lid}
+	@Produces(MediaType.APPLICATION_JSON)
+	public Patient getPatient(@PathParam("lid")int login_id) {
+		return pDao.returnPatientByLoginId(login_id);
+		
+	}
+	
+	@GET
+	@Path("/updatea/{lid}/{allergy}")//http://localhost:8085/ActualCare/rest/patient/updatea/{lid}/{allergy}
+	@Produces(MediaType.APPLICATION_JSON)
+	public void updateAllergy(@PathParam("lid")int login_id, @PathParam("allergy") String al) {
+		Patient p = pDao.returnPatientByLoginId(login_id);
+		pDao.updateAllergy(p, al);
+		
+	}
+	@GET
+	@Path("/updates/{lid}/{symptom}")//http://localhost:8085/ActualCare/rest/patient/updates/{lid}/{symptom}
+	@Produces(MediaType.APPLICATION_JSON)
+	public void updateSympton(@PathParam("lid")int login_id, @PathParam("symptom") String sy) {
+		Patient p = pDao.returnPatientByLoginId(login_id);
+		p.getMySymptons().setS_name(sy);;
 	}
 
 }
