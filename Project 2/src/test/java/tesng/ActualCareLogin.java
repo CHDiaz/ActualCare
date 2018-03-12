@@ -51,10 +51,10 @@ public class ActualCareLogin {
 	@Test
 	public void logInToActualCare() {
 		
-		driver.findElement(By.xpath("//input[@type='email']")).sendKeys("steven@com");
+		driver.findElement(By.xpath("//input[@type='email']")).sendKeys("test35@com");
 
 		
-		driver.findElement(By.xpath("//input[@type='password']")).sendKeys("steven");
+		driver.findElement(By.xpath("//input[@type='password']")).sendKeys("test");
 		
 		driver.findElement(By.xpath("//input[@type='submit']")).click();
 		Assert.assertEquals(driver.getTitle(), "ActualCare");

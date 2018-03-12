@@ -65,7 +65,7 @@ public class ActualCareRegister {
 
 		driver.findElement(By.xpath("//*[@id=\"state\"]")).sendKeys("NY");
 		
-		driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys("test@test");
+		driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys("test35@test");
 		
 		driver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys("test");
 
